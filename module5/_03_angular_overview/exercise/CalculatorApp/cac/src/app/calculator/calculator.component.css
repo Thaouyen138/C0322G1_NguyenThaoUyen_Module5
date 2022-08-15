@@ -1,0 +1,32 @@
+table{
+  width: 500px;
+  height: 500px;
+  background: linear-gradient( #19887d, cadetblue, #0c544e);
+  border-radius: 10px;
+  margin-left: 500px;
+  margin-top: 20px;
+}
+input{
+  width: 450PX;
+  margin-left: 20px;
+  height: 50px;
+  border-radius: 15px;
+  border:white;
+}
+tr{
+  height: 100px;
+}
+button{
+  width: 100%;
+  height: 70px;
+  border-radius: 20px;
+  border: white;
+}
+.buttonResult:hover{
+  transform: scale(1.1);
+  box-shadow: 0 30px 30px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.buttonResult{
+  background: linear-gradient(#a3d5b9,#d2ffa7);
+
+}
