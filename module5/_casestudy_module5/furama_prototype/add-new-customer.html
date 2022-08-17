@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Customer-Management</title>
+        <link href="/bootstrap/bootstrap413/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <style>
+            .conter-box{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+<body>
+<div class="row bg-warning conter-box text-white ">
+    <h3> Add new customer</h3>
+</div>
+<div class="mb-3">
+    <label class="form-label">Id Customer</label>
+    <input type="text" class="form-control" name="id" >
+</div>
+<div class="mb-3">
+    <label class="form-label">Customer type</label>
+    <select name="customerTypeId" class="form-control">
+      <option>Type Customer</option>
+      <option>Diamond</option>
+      <option>Plantinum</option>
+      <option>Ruby </option>
+      <option>Member </option>
+    </select>
+</div>
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" >
+</div>
+<div class="mb-3">
+    <label class="form-label">Date of birth</label>
+    <input type="date" class="form-control" name="dateOfBirth" >
+</div>
+<div class="mb-3">
+    <label class="form-label">Gender</label>
+    <input type="text" class="form-control" name="gender" >
+</div>
+<div class="mb-3">
+    <label class="form-label">Indentity </label>
+    <input type="text" class="form-control" name="idCard" >
+</div>
+<div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input type="text" class="form-control" name="phone" >
+</div>
+<div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="text" class="form-control" name="email">
+</div>
+<div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" name="address">
+</div>
+
+<button type="submit" class="btn btn-warning float-right">Submit</button>
+<a href="/home" class="btn btn-warning float-left" > Back Home</a>
+</body>
+</html>

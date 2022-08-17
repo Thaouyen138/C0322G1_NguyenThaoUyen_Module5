@@ -1,0 +1,69 @@
+<!DOCTYPE html><html>
+<head>
+    <title>Customer-Management</title>
+    <link href="/bootstrap/bootstrap413/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <style>
+        .conter-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="row bg-primary conter-box text-white ">
+    <h3> Edit customer</h3>
+</div>
+
+
+<form action="/customer?action=edit" method="post" class="container">
+    <input type="text" hidden class="form-control"  name="id" value="${customer.id}">
+    <div class="mb-3">
+        <label class="form-label">Customer type</label>
+
+            <select class="form-control">
+                <option>Type Customer</option>
+                <option>Diamond</option>
+                <option>Plantinum</option>
+                <option>Ruby</option>
+                <option>Member </option>
+
+
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" value="${customer.name}" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Date of birth</label>
+        <input type="date" class="form-control" name="dateOfBirth" value="${customer.dateOfBirth}" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">gender</label>
+        <input type="text" class="form-control" name="gender"  value="${customer.gender}" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Indentity </label>
+        <input type="text" class="form-control" name="idCard"  value="${customer.idCard}" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phonee</label>
+        <input type="text" class="form-control" name="phone"  value="${customer.phoneNumber}"  >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" name="email"  value="${customer.email}" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" name="address"  value="${customer.address}" >
+    </div>
+
+    <button type="submit" class="btn btn-primary float-right">Submit</button>
+    <a href="/home" class="btn btn-primary float-left" > Back Home</a>
+</form>
+
+</body>
+<script src="/bootstrap/bootstrap413/js/bootstrap.bundle.js"></script>
+</html>

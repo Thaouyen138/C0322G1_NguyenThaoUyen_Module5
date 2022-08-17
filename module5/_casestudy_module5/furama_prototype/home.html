@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="/bootstrap/bootstrap413/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/bootstrap/bootstrap413/uyendepgai.jpeg">
+    <style>
+        /*.menu-button:hover {*/
+        /*    background-color: cadetblue;*/
+        /*    border-radius: 20px;*/
+        /*}*/
+
+        /*.center-box {*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
+        /*}*/
+
+
+        /*.menu {*/
+        /*    padding: 0*/
+        /*}*/
+
+        /*.col-1 {*/
+        /*    width: 8.33%;*/
+        /*}*/
+
+        /*.col-2 {*/
+        /*    width: 16.66%;*/
+        /*}*/
+
+        /*.col-3 {*/
+        /*    width: 25%;*/
+        /*}*/
+
+        /*.col-4 {*/
+        /*    width: 33.33%;*/
+        /*}*/
+
+        /*.col-5 {*/
+        /*    width: 41.66%;*/
+        /*}*/
+
+        /*.col-6 {*/
+        /*    width: 50%;*/
+        /*}*/
+
+        /*.col-7 {*/
+        /*    width: 58.33%;*/
+        /*}*/
+
+        /*.col-8 {*/
+        /*    width: 66.66%;*/
+        /*}*/
+
+        /*.col-9 {*/
+        /*    width: 75%;*/
+        /*}*/
+
+        /*.col-10 {*/
+        /*    width: 83.33%;*/
+        /*}*/
+
+        /*.col-11 {*/
+        /*    width: 91.66%;*/
+        /*}*/
+
+        /*.col-12 {*/
+        /*    width: 100%;*/
+        /*}*/
+
+        /*[class*="col-"] {*/
+        /*    float: left;*/
+        /*    padding: 15px;*/
+        /*}*/
+
+        /*.row::after {*/
+        /*    clear: both;*/
+        /*    content: "";*/
+        /*    display: block;*/
+        /*}*/
+
+        /** {*/
+        /*    box-sizing: border-box;*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*}*/
+        .center-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-button:hover {
+        /;
+            background-color: goldenrod;
+            border-radius: 20px;
+        }
+
+        .bg-color {
+            background: linear-gradient(#d2ffa7, #418768, #0d6e68, #0d6e68, #418768);
+        }
+
+
+        .container {
+            position: relative;
+        }
+
+        .container .noi_dung {
+            width: 80px;
+            height: 70px;
+            background: white;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: reveal 3s ease-in-out forwards;
+        }
+
+        .container .noi_dung img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container .noi_dung::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: white;
+            z-index: 1;
+            animation: reveal 7s reverse forwards;
+            animation-delay: 3s;
+            transform-origin: right;
+        }
+
+        @keyframes reveal {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        .container .noi_dung p {
+            position: absolute;
+            right: -100px;
+            bottom: 0px;
+            margin: 0;
+            padding: 10px;
+            background: #fff;
+            z-index: 2;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: reveal 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        .container .noi_dung p::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            z-index: 1;
+            animation: reveal 1s reverse forwards;
+            animation-delay: 2s;
+            transform-origin: right;
+        }
+
+        .space-around {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-button:hover {
+        /;
+            background-color: red;
+            border-radius: 20px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .card:hover{
+            transform: scale(1.1);
+            box-shadow: 0 30px 30px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+
+
+
+        @media(max-width: 990px){
+            .card{
+                margin: 20px;
+            }
+        }
+
+
+
+
+
+        @media(max-width: 990px){
+            .card{
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #0c544e">-->
+<!--    <div class="collapse navbar-collapse center-box row" id="navbarSupportedContent">-->
+<!--        <div class="col-md-11">-->
+<!--            <ul class="navbar-nav mr-auto">-->
+<!--                <li>-->
+<!--                    <img style="width: 70px;height: 70px"-->
+<!--                         src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBIVEhgSFRUYGRIYGhgcGhYcGhoYGBgaGhgZGRwZHBYdIS4lHR8vHxgYJzgmKy8xNTU1HSU7QDs0Py40NjEBDAwMEA8QHxISHDQmJSw0NDQ4NDQ9PTExMTQ0NDQ0NDoxND80NDQ2NDQ0NDQ0NDQ0NDQ0MTQ2NDY0NDQ0NDQ0Mf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABQECAwQGBwj/xAA/EAACAQIDBAcFBgQHAAMAAAABAgADEQQSIQUxQVEGEyIyYXGBB0KRobEUUmKSssEzcoLwFSM1c6LR4XSz0v/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAHxEBAQACAwEBAAMAAAAAAAAAAAECEQMhMRJRIkFx/9oADAMBAAIRAxEAPwD2aIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICUgma74umu9h8b/SEtk9bETTO0afM/Ax/iNL71vQ/9Qn1P1uxMFPEI25gfC+vwmW8LtdERCkREBERAREQEREBERAREQEREBERAREQEpE08Vi8twBcgAnyvY25mEtk9Z6tZVFybf3wE0qmNY90ZQdxbefJRqfnNa3aBJzMSRmOvC65QdBcEazD1925KSM2vaI43beZXHLkv+M1XU9piTyJP6F1+Yle7wt6Inza7S0Gw7IuOa9hfVzq3xEKG90gfyqWP5rfvDLJnJ3H/AJuf0iOsI4j87j9QtMZRuLVPUW+rSmVhxqj+k2+TQm7+LyL71v42Vv8AktjLqTkdxjbl3l/L3l+BmENf3kY+Iyt+bT6y7UkBgb8M2u7Xs1Br9RCyt6ljh7wtyYaqfXh6zeBkIjX1FzfmO0f2cfOZKFVl7uqn3fdP8pOoP4TDpjn+piJio1Ayhhex5zLI6kREBERAREQEREBERAREQEREBERApI7aKWKvwGjfytp/3JGYcVTzKV5j58IZym4iCpykHvC49U1B/KWHpCqGOYLqeYvrxyrx14nQSqPrm5qG9UNm+Qb4zQ2rtalhaZao5FiUUAXdjo62Hodd2srzbk7rZbEX3D1btH04D0E5Lpf0paiTh0zGoyXz57ZM1wpUW1OhPC2npAbf6XVKlXNh3enSsOyQgbNqWJIJ03W14bpO7BxOLC9ZjFpLSNv8yplp1Pw6AWI8Gynzmta9cMuT66lcJidoValNabuzohJAYltWtvJ37tL7rnnJ7ZfTKtSWmjANTTRmObrCtzazXsLLYbje3wntv1dl5urrBM5AOdFOZQRcEug5G9jffunJ9INgPhiGDZ6D9xx4i4VraXtuI0PyGuq436x7lesCsx3nMPxDN8zrMivdTYAe6AL95zqdfAETx3A7exVEMEqMQwtZiXCn7yhtzf8AflO36Bbaq1kqU6rFmpdpWPeIYFQDzswGv4pm46d8OX6unVPWIYgaqLAA6ggaA+B8fGZjvtvJbLr7wAF83MgnRt8tFJVN9eyTfkSq3JHrYesz4FLuPwKPzNqfqfhMvRjLtKothaXREj0kREBERAREQEREBERAREQEREBERAShlYgQbLle3APb+lx/5OJ9o+CzU6VbMoKZlKswUtfKpy37zDIDYcCeU7zaCdpvFQfVSP2nJ9O9krXoGpnCtRLMC18pR1VmU2BI7gsfTjNT14+adWOJ6K0KYapiqozU8OobL952JCDXxBt42mvtzb1XFFc4VUQsVVb8basSe0bDfYbzzkx0Cek/XYaooYVAjBWFw3Vlri3HvKbfhMy18ZgXxBwj4JUGfJnGVGU3sGIUCy8b5jprrN77ePX8Z24udt0d2gcVRfAOi5Vo9hxe90KhSQeIJUi3KQPSLYjYaoFvmpvco/EgWurfiFx53B8Bf0Ux70sSioqt1jIjXBuFLa5TfTnx7olvcTHcuq19ubNOHqJTPealTdhvs5BDi/8AMp+Mm/ZzimXFmkFBSot3bW6rTu2nCxNgfT1x7ew9fG4wijSdlXKitlKpoTdixsAMzN6WknTq0Nl0j2lq42opuAeyovYA8VW1zzYkbhul8bwms/ryR3oFxbi2UHzdsx+QE39m6hm+8xPpwkXha+dEqZSuYF8p3ramMoPiCbSawiWRR4D56zm9/HN3bYiIkdyIiAiIgIiICIiAiIgIiICIiAiIgIiIEftFO0h55l/MLSOqU1ZCrKGRkXMpFwwBykEcrEyU2huU8nUyNtoB+Bx+UsZXDOfycDjtmbLoV2y4mrRq02PYUM2VgdApZCSCDzN/Kctt3HrXxD1VBCtlAvYEhVC5iBpc2vaendJujVLFXe+SsC1qgF7gKGCuvvDU+I+U53ZXQlFz/aSr3y5CjOpAGbNe4G+68903LHi5MMt6k6RmPam2yKNmYslXL2t4azkqPw2It4AeU57AVylVKgYrlZTmG8C+tuel9OO6dq+z6eIxK4NFy4TCjNUAJ7bt7ua9+dzv0fwlcfh9mYPMXQVKrlmCEBrBmJACHsooBtci5txiVi429ub2/wBIKmJqZgWSmoIVAxvY7y1t5OngLDzM50O6KOz0cWzU+quGCWLM2jaMCLDde+sw7FC42sUTB4ZKKDNUOViwXgAyMozHW2nAnW1p6OlFaYVEUKihgqjQALTUAARbrp048N3d7EF181Pxapb6CTo3SGojuj/bHxYt+0mph7uLxWIiR1IiICIiAiIgIiICIiAiIgIiICIiAiIgae0P4Z8Cv1Ej2HaHnVH9/GSG0v4Z81/UJHt3v6qv0Erhyeqn/wDXzpCRWPxPV0nqfcR2tzyqTb5SWbf6t8qQkNtTDGpQqUwbM9N1BO65UgX9bSxxzcHszbn2bCMykNiq1R2udcoAC52HE5s9hxJMgadCtWYsqPUdjcsFZySeJaeh9Hui1OiivUQPXIBJIzKh+6o3XH3t/lOimvpwnHbO0H0N2fiKNJ1qKiKVJCKL1CSR2nfMQTbSw+VrTqq3ePlU+lv2mrRHeGgup3mw4cTNmowJuNdKn0v+8zXowmsdK0O8vnS/Q0mZDUO8vnS/Q0mRMvRx+KxEQ6EREBERAREQEREBERAREQEREBERAREQNPaHc8Lr+oSNcNfs94M5tpezW1AO8WkltAXS1gRfW97fEbvORyoQNCcvIgOvxW/0ErjnO1EVuzmBzE1Da1j3QN0uFPLaykaDXKAb217THTW+4TGbcer/AOY+WkqoXhkv4K7H5w5rjUHFvi7H9K2le9xJ9VcfA2YSu7fp4FUX/i2p+Uo1PmB6oR80hVHULvCDzVx8pQa2sVIIcaC1jl8deImN1BsMyAC+gzcfMTJQXVVHa7WpANgCLHUwz/a+ke6fGmfgWEmhIFASgtvyjTxFT/2Tq7oduNdERI6kREBERAREQEREBERAREQEREBERAREQKTA+GQ6lRfmND8RNiUhLNtU4McHcf1H95b9hB3s582m5EJ8z8a1PA0x7oPnr9ZRsCm8Ag+BIm1EHzPxpnBfjf8ANH2BTvZj5sZuRB8z8Y6dFVFlAEyxENEREBERAREQEREBERAREQEREBERAhek3SClgaH2isrtSzKpyAMVzXsSCRpcW05iR9Dpir01qpgsc9NlDKy0kOZSLggZ7m4kb7Zf9Jf/AHKX6xLeiHS3DJgMNSKYgulGkpy4au4JCAGzKhDDxECWxnTOhSwI2g9HEClmyshRVq02zlDnRmFu0LaE7xJbYm1ExWHp4lFZUqDMquFDWuQCQCRqBffuM5X2sVM2xaj2ZbtRNmGVh/mpvU7j4Sa9n/8ApWE/2Kf0gXdLOlNDZ1NatdKjI75AUCtZspbW7Dgp+Es2z0rpYbBJjqlKqaTimcqqnWJ1guuYFwBwBsTqZynt4/06l/8AJX/6a0z+0z/QF8sL9UgS6dM3agMSuzsY1FlDqy9QxKEXDBFqFt3hJLov0owuPpGrQZuyQHRhldCRcAi5G7iCRv10nGYDp7RwWBweGNKo2IbD0MgbLTonMihWasxsEvvIvaxvJ32d9EWwFOo1R1bEYhgz5bhFC5iqLffYuxvYb/CB2k47ZXtDwOIxhwKdYKuZ1DMqhHKZrhWDE6hSRcC8u9o3SMYPC5FdUxGIPV0iTlCXsGqk8Aoa9+ZWcB0qwmCTCYats2slSvs/IWZBmJTOGLuVFv4na1IFmeB7Y27dfwnF9HfaTgsZiRhUWslVs2XrFQKxUElQVdtbAnXlOj2DtVMVhqWJTuVEDW35TuZT4qwZT4ieHYjYrU9nYfa+HAFbD4iqHI4qMQ3VueYDWU8w3hA+hJxe3/aLg8LivsbJWqVuwCKaoQrPbKpLuva1B9RN/FdK6S7MG0VBZXpq1NN7NUeyrS7N+1nOU23WPKeV9Ltithq2zDVscVWqvVxD8WqPWosRfkt8o4aeMD3icn0p6e4PAVloVlqs7IH7CqwVSxUXuwtqpnQbUx9PD0Xr1Wy06almPgOQ4ngBxJE8q2biNn47D4qpisRT+2Y89mmCXegqfwECqCcwIDGw1vYwPW8NXSoi1EYNTdVZWG5lYXBHgQRM8879kW2GfDPgK1xiMI5Qqd+TMQB/SwZfILznokBERAREQEREBERAREQEREDgfbI4/wAKdfeapSCjeSQ2Y2H8qkyd6CODszCWO6hTU+BVQpHmCCPSdDEDlPaPsmridm1qNFc1XsMq8WyOrFR45QbDibTleg3tCwVDCU8Hi2ahXoDqyGR7MF3HQHKbWuGtrPVZjNNSbkAkcbC8Dxn2vbZbFYeiKFKocKKhPXMjoHqFGCrTVwGZQuclrW1ABk57RcQj9H6RU36wYbIBqW0DEW8AG+E9Jaso3sB5kSqODqCD5G8G3CYLo1h9o7EwtJ9HWggSoB2qbqoVt+8XUhl424EAiE6KdKK+zah2btS6U00oYkhmQqNy5rdpLd0717p8PWpSB5n0FqHaeOxG1qq/5VP/ACMNSNjkFg7MRwYgrrf32G4CeiV8JTem1JlBpurKy20ZWBDAjxBmxKwPH+hO2P8ACsXitlYl7UlL1KDsdCAue1/xIFNh7wYbzJv2TrTxGxepezgvXSop/ExYg8uy4PrPRLRA8n6C9F8UuKbDYgk4LAVmeiCNKlWoAUe/EKpz+DOfTT9t+LCYrAsNWp53K/10yPjkb4T17E1gi5ieGg5madDHDKA12biAL8dIZuUl1Xn23tsJtXaVDZdFw2DS1bEMDpVygOEHNdVHmx+7r6dSoIvdUL5AD6SlF2bUrlHC51+HCZoaeS9OA2zNrUdrU1Jo1+xXUcTYBvUqFYD71M856phcSlRFqIwam6hlYahlYXBB8pniAiIgIiICIiAiIgIiICIiAlJWargsSuoUbzuJPIHlCVSpidcqjM3H7o8zMD0nYqGYm57q9kADeSeP/s3lQAWAAEjHxLBi4AKk5QTfS3H9/SGcuvW6mDpj3R66/Wa2detVaYGl8xG63LTfL2w1R+84C/dUafEzPTpJTUkCwGpPE2lTW/JqNiCZp0K5LAaWK3txGotc+Mw7Qq9pR7o73EC+gJHxNvCRq5STaSljVFG8ges11YlQqbgAMx1GnLn9JpkX1Y5iXVVuBwYZjblvguWm6mNRmygnztofWA5e9jZN2Ybz5ch4zBtEaKg0LNpbS393m7SQAADcBaEltuqjUwqmrlFyFF2JNyTwH9+Mk1QDQAAeGk0Nmt2nB72b/ubj1dco7308TBhrW2eJQSsNkREBERAREQEREBERAREQEREBERA0to1sqabzoP3lwwo6sIeXz33+MyVqAbLfgQfhIWj0kDmsKeGxFQUKj0nK9T30CkhQ1QFtGB0HHnpDOt27SWBrHWm3fX5jnGJoVWBAZcp4WsfK81dmY6hjKQr0XNgWW9ijoymxVkYXBB4HnyMxbe6Q0cEqGvnbMT3EzFUW2aowv2UUsgLcCy84JOtVuYWhUAtYLzN8zHy4CZq2EuuVTYXuTvJ5685tAgi41EgaHSnDNjn2ec6YhN2YAJU7C1CKbAnMQrqSpsbHdBMZrSdVbC3KYEwaBs4GvyHpMWC2itV61NVYGhUFNiwFixppUutibjK677TW6RbepYOl11RXYE2CIAzmys7EKSNFRGYm+gBhdRKlAbEjdu8JfMOHrLURXUhkZQysNzKwuCPAgiQ79J8OuN+wNmSsQCrMAKbkrmCq1+9a/ZNtx8LlStXC02NyuvPUfSZKdJVFlAAmrhtoI9arRCsGo9XmJAynrAWGU3udBrcD1mtj9uU6dZcMqvUxLqXFJMuYIDlNR2YhVS5tcm5OgBOkJqepiJHYPF1WZleg1MAAhy9NlY8VGVswI8QBJGFIiICIiAiIgIiICIiAiIgIiICIiAnGdHkxWGfG5sHVYVcXUq02V8PZlcIoJvVBXuE6i9iOOk7OIHO9Edi1MLTrGoVNbEV6uIdVuUQ1COwrEAsAANbC5vNWnsJsWa9XGLUQ1M1FKK1CoTDi4AbI2Vmckud+9V93XrIgc/0RoYmlh/s2IXtUGNNKt1PXUl/h1LAkq2WwIOtxfjI3EdG/tL41ayNTz4inVw9cMudGTD0qa1EKm6kNTOhtcGdlEDl+hmExiDENjFUVqle4ZSMtRVoUaQqAA9nN1ZNjYjlLl2XUxOIq1cQtRETNSoIKmXNTIUvVJpt75sMpOgQaAkzpogcz0QwNfDU6mDqKxo0XIw9UsrZ6LXZVIBzBkuVNwLgC018d0f8AtdbGU8RSZaLjDmjWDIGDor3dCCWVlJGpAvqNRv66IHKdDsDjadTEnGZWcmkqVlsBWWmhUVClyVYgi4PG9tJZtDZeJpbS/wARoIKyNQ6mpRzKlQWfMr02eynkVLLzub6ddEDmNmjGPtB6z06tLCHDqq03qU2HWh7lslOowHZsL+B5zp4iAiIgIiICIiAiIgIiICIiAiIgIiIFlSXxEgSx90RKL4iIFrbpWViQJY+6IlFwlYiSC1oWIgXREShERAREQERED//Z">-->
+<!--                </li>-->
+<!--                <li class="nav-item active menu-button center-box pr-4 pl-4">-->
+<!--                    <a class="nav-link center-box " href="/" style="font-size: 30px;color: white">Home <span-->
+<!--                            class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+<!--                <li class="nav-item active menu-button center-box pr-4 pl-4">-->
+<!--                    <a class="nav-link active center-box" href="http://localhost:63342/furama_prototype/customer.html?_ijt=eq7j32l2hgtsuglobi72nap3nc&_ij_reload=RELOAD_ON_SAVE"-->
+<!--                       style="font-size: 30px;color: white">Customer</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item active menu-button center-box pr-4 pl-4">-->
+<!--                    <a class="nav-link center-box" href="http://localhost:63342/furama_prototype/facility.html?_ijt=eq7j32l2hgtsuglobi72nap3nc&_ij_reload=RELOAD_ON_SAVE" style="font-size: 30px;color: white">Facility</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item active menu-button center-box pr-4 pl-4">-->
+<!--                    <a class="nav-link  center-box" href="http://localhost:63342/furama_prototype/contract.html?_ijt=jln8d95m625lf3j9sp9vrruv6s&_ij_reload=RELOAD_ON_SAVE" style="font-size: 30px;color: white">Contract</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item active menu-button center-box pr-4 pl-4">-->
+<!--                    <a class="nav-link center-box " href="/employee" style="font-size: 30px;color: white">Employeee</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="col-md-1">-->
+<!--            <form class="form-inline my-2 my-lg-0">-->
+<!--                <button class="btn btn-outline-light" style="border-radius: 10px;font-size: 25px;margin-right: 150px">Log In-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+<div class="row center-box " style="height: 30px">
+    <div class="col-3 mt-2">
+        <div style="margin-left: 100px">
+            <i class="bi bi-sun-fill" style="color: #4fc2a0"> </i>&ensp;
+            <span style="color: black">Thời tiết : 26ºC / 19ºF</span>
+
+            <!--             weather widget start <div id="m-booked-custom-widget-22965"> <div class="weather-customize" style="width:250px;"> <div class="booked-weather-custom-160 color-137AE9" style="width:250px;" id="width3"> <div class="booked-weather-custom-160-date">Thời tiết, 11 </div> <div class="booked-weather-custom-160-main"> <a target="_blank" href="https://hotelmix.vn/weather/ho-chi-minh-city-18408" class="booked-weather-custom-160-city"> Thời tiết TP. Hồ Chí Minh </a> <div class="booked-weather-custom-160-degree booked-weather-custom-C wmd18"><span><span class="plus">+</span>30</span></div> <div class="booked-weather-custom-details"> <p><span>Cao: <strong><span class="plus">+</span>28<sup>°</sup></strong></span><span> Thấp: <strong><span class="plus">+</span>25<sup>°</sup></strong></span></p> <p>Độ ẩm: <strong>67%</strong></p> <p>Gió: <strong>SW - 18 KPH</strong></p> </div> </div> <div class="booked-weather-custom-160-main"> <a target="_blank" href="https://hotelmix.vn/weather/london-18114" class="booked-weather-custom-160-city"> Thời tiết London </a> <div class="booked-weather-custom-160-degree booked-weather-custom-C wmd01"><span><span class="plus">+</span>28</span></div> <div class="booked-weather-custom-details"> <p><span>Cao: <strong><span class="plus">+</span>32<sup>°</sup></strong></span><span> Thấp: <strong><span class="plus">+</span>19<sup>°</sup></strong></span></p> <p>Độ ẩm: <strong>33%</strong></p> <p>Gió: <strong>E - 16 KPH</strong></p> </div> </div> <div class="booked-weather-custom-160-main"> <a target="_blank" href="https://hotelmix.vn/weather/new-york-18103" class="booked-weather-custom-160-city"> Thời tiết New York </a> <div class="booked-weather-custom-160-degree booked-weather-custom-C wmd18"><span><span class="plus">+</span>29</span></div> <div class="booked-weather-custom-details"> <p><span>Cao: <strong><span class="plus">+</span>30<sup>°</sup></strong></span><span> Thấp: <strong><span class="plus">+</span>24<sup>°</sup></strong></span></p> <p>Độ ẩm: <strong>50%</strong></p> <p>Gió: <strong>SSE - 20 KPH</strong></p> </div> </div> </div> </div> </div><script type="text/javascript"> var css_file=document.createElement("link"); var widgetUrl = location.href; css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/weather.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData_22965(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-custom-widget-22965'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } var widgetSrc = "https://widgets.booked.net/weather/info?action=get_weather_info;ver=6;cityID=18408;type=2;scode=124;domid=1180;anc_id=45871;cmetric=1;wlangID=33;color=009fde;wwidth=250;header_color=ffffff;text_color=333333;link_color=08488D;border_form=1;footer_color=ffffff;footer_text_color=333333;transparent=0";widgetSrc += ';ref=' + widgetUrl;widgetSrc += ';rand_id=22965';var weatherBookedScript = document.createElement("script"); weatherBookedScript.setAttribute("type", "text/javascript"); weatherBookedScript.src = widgetSrc; document.body.appendChild(weatherBookedScript) </script> weather widget end -->
+
+        </div>
+    </div>
+    <div class="col-6 mt-2">
+        <i class="bi bi-clock-fill" style="color: #4fc2a0;padding: 0"></i>
+        <script>
+            let now = new Date();
+            document.write(now)
+        </script>
+    </div>
+    <div class="col-3 mt-2">
+
+        <span style="margin-left: 50px;color:#07573f">  EN &emsp; VI &emsp;  JA &emsp; KR &emsp; RU&emsp; CN </span>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="row " style="height: 100px;width: 100% ">
+        <div class="col-3">
+            <div style="margin-left: 150px">
+                <img style="height: 100px;width: 120px;margin-bottom: 30px;"
+                     src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUWFBYSFhYYGBgZGBgaGBoaGBgdHRofHBgcHB0YGhgdJS4mHB4rHxoYJjgmKzA3NTc1GiU7QDszPy40NTEBDAwMEA8QHxISHj0rJCw3NDE2OjQ0NDQ2NDQ0NDQ2Nzo0NDQ0NDQ+NDQ0NDQ2NDQ0NDQ0NjQ0NDQ0NDQ0NjQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAQUBAAAAAAAAAAAAAAAABgEDBAUHAv/EAEIQAAIBAgQDBQUFBQYGAwAAAAECAAMRBBIhMQVBUQYiYXGREzKBobEUQlJywQdigpKiJDOywtHSI2Ojs+HiFSVD/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAIBAwQF/8QAJhEBAQACAgICAgEFAQAAAAAAAAECEQMSITFBUQQTIkJhgaHwFP/aAAwDAQACEQMRAD8Ah8RE7vhkREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEQBfQSY8B7Du4FTEE00tfJ98i9u9+Hy315TLdNxxuV1ESoUXdgiKzsdgoJPoJI+H9h8VUGZwtNerG59Bp6kTo+B4fQw6+zpoq9bAXJ6sTfXzufKZrm2pNvH/Rmuf5RIuX09OPBP6qhWG/Z0lu/WdvyKAPo31mWP2fYbbNU/mH+klOYH7rP42J+bE/SNfwH0T/AGx2rrOLCfCG4j9nNK3cq1F/Mtx/hH1mi4h2FxKAsmWqo/CbH0OnznT9tSrL45f1XLKq99Qbn1P6OPnHapvDhXCK9B0Yo6sjDcMCD6GW53DiXDKOITJVRWHI6XB/dcW19D5znPaPsbUoXqU71KfPTvp+Yc/r4c5Uy24Z8OWPmeYisREpxIiICIiAiIgIiICIiAiIgIiICIiAiIgZfCsX7KtTq8kcE+WzfGxM7ejBhvowvfz7rH1yt8JwWdc7F432uEpknVD7NvL3L+mQ/GRlHo/Hy82NzkDG5Otu8BvcaEknQDbU9Z6aqoPU9f8A3YfQCWsdjkoI9SowRRZibX1IK2A3Jz8h4yA8b7aOav8AZrZLD3kOYsdxYnba1pMm3fPKYz+7ddpu14o3p0wj1QVzBw7KoIvqSdTtpfnNFR7d1TXVnRBRNgyBFJAtqwa1yb69PrNrw3CJVGfF4akjubglrM5/ITmU7afSabFcEwld2TCVQKign2ZLFGtvkc/oSPrKmnDLLO+ZUz4Hx6niVZ0UqVNmFyrC+x0JFj+hm3Vw2mtzbcC411OcanS84vg8fXwzOEYo1wHUgG5UnRgR4n1kt7O9rqtXFLTdUCVLooUaoxGhvzvqPj4TLFYc2/FTtqwBuR712PkToLHQi3I9Zb4ljFo0nqt7qKSR1suYL4g3AsdQToZdakGN78x5ZbkD45VvIh+0jHZaCUudRszDwHfPzKekyTddcsrjja5xVqFmZza7EsbbXJubCeYidXgIiICIiAiIgIiICIiAiIgIiICIiAiIgJO/2aYn+/oHmA6+drH5qkgkkXYPE5ManRwyn0z/AOSZl6Xx3WUTH9oVJHwuZnCFaisl795mUnLoDqbv6dJCezeWmtbGMmf2IRaanYu5IUnysfWdM43w5a2Hek6lrKSuUgNmRiBlJ0Bs1tesgHYjiIo1amHqdwuVtnFsrrmAVgbWuGI8wJEvh25cf5y1ouK8RqV39pVtmsAABYAC50Hxlvh+MajUSqlsyXtcEjUEagEciZJv/nc9aph8eEZAWS6pqjBrAqw1C2vrvtI9xrhxoVnpE3AsVPVSLqfO2nmDLn045T52k/G+GivQ+3kBWOHRmA2z5lObyyZh6SM8ErumIotTAZw65QRcEnTl5yQYJq1bhzoKiEBznao5Hs6aBSF0BOpF/LSWuH4/CYNDURvtOJI7pKMqJrrbNYnQbjU3I01mT6VqWy+nUXXcDxA+FkH1acs/aFi8+LKA6U1C/E976FfSdB7PNXNBGxNvaXudtu+4vbS9is5JxuvnxFZ+tRwPIHKPkBJk8u3Pl/Gf3YMRE6PIREQEREBERAREQEREBERAREQEREBERATYcCq5MTQb/mIP5myn5Ga+XcK+V0bo6n0YGCe3dX1Pnm/qQMPnIb2y4liaDM4pUXpNolQoWZCbMQxvYG50NrG8ma7r+ZPmlv0nl1upB1BU3H8CH9Jyj6GWPaXVcXwnD8TWb2qIzkubvZSM9wxzX0G4Oums2vaahUxGIdkQv7NadNyo0Lk6qvU5mI8LSZ8ZxS4bDvURVWw7gVQBmY2BsPE3+E0TcWTA4WnTUBq7oHYHkzal3O53sBztK3t5bjJ4taZuz+MSiUbIiMwZlaoi3IGmY3sbdLzb9kOyysr1cSiOuns7OHBIDZj3GKkXK6HoZF8PUOJxCfaKjnMdbKzMf3ERRpfwFhOzLSVVyKAqjuqALAAezAAEW2K4sZld/RXfKrt+HP8A0oq/rODlr6nc6n4zt/GHth8Q3SnXP+GcPEYn5F8xWIiW85ERAREQEREBERAREQEREBERAREQEREBAMT1TW7KOpA9TA7vT+5+al9GlTt/Cf8AtLKWNhbfuEeOVTe3XU7RZiNVIJD6WP4FAsPhOL6SJ9tMI9XDqiKWPtUuB0N19LkazHwfY6mf+JiHaq7atZiq36C2p6b8thJs1ILsPiR+rED5SmYbXX+g/wCUD5zduV4pvdabA8Lo0f7umqHqBdj4Zjr85u3Gh8Tf+pJ5aiN8o87OPpmEtm1my5dhfVybZh1AHSF449fDF44P7NiR/wAqv+k4kJ3TiFPNTrJ1WqvqVnC12lYvP+R7isREt5yIiAiIgIiICIiAiIgIiICIiAiIgIiICZGAdVq02c2UOhY2vZQwJNuel9JjxBHcMFjqNUZqVVGB3CsD6o1rH4zL9megP8H+3ScEUkG4NiNiND6zPpcYxK+7XqfzsfqZHV6Z+RPmO15LcgP4EHzYyntFvlzC/S6/QqB85xWpxnEtvXqfzsPpMEub5rm/W5v6x1bfyPqO85Og5EXCjmLfdYzwKGUH3jcEajKNfEmcVpcXxCe7XqDwzsR6Ey4/HMSRY16nwcj6TOp/6J9OwY/HUqSs9R0Re9qWGpKA2H4jdeU4jWy5my+7mOXyvpp5SjuWOZiWPUkk+pnmVJpx5OTv8EREpzIiICIiAiIgIiICIiAiIgIiICIiBSJMuwtBGo493p03NOkHQvTV8rBahuMwP4Rp4TQHjbMrK1PDkOpW4w9JWW495WRQQw3HlM2u8cmMyt9tbEmPEsOg4NhqoRA7VijOEUMyhqtgWtf7q+kj3AADisMGVWVq1NWVgCCGcKQQdDoTG2XDVk+9f7a6Lyd4zCUxxtaIpUxTzIuQImUg0bm62sdSTPGOx1ZeIvhqVOm9MVVX2X2ekVy929yEuBqTe+kzs6fp17vzr0hETe9skw4xdRcPlyALcL7oe3eC20tttzvK9nUSklXG1kWoiDJTRgCtSqw0FjyC3J8xN34R0/l120MpJT244fTV6WKoKFoYhFZQoACsALrYaLplNuuabjsMuGbDKleije1xL0VZkUlSaKuozEXFzcDxYRvxtU4rcuu3P5SZ3F+HNQr1MO1yyPlHVgdVIHiCp+MnmA4dRp4DGUvZo9ehRJqOVViKjU2YqpI0CgKLjmDFumY8VytnrTm0TIwGDatUSigu7sFHhfcnwAuT4CTdsPhcXQxOGw9JBVwwVqTqqhqyoAGYkaksQ386GLdMx47lP+8oBEpKzUEREBERAREQEREBERAREQERECcfs6qMtLiLroy0VKmwNiFqkaHQ6yMY7jeIrLkqVCy9AqKD5hAL/GY2Gx1WmCqVHQN7wR2UN5hTrMeZry6ZcluMxnwnf2R6/BKKUQXajWZnVdWAzVNlGpNqim3SaTspwmq+LoEo6olVHdmUqq5XBALHS5IAA3JM0+Ex1WkS1Ko6E7lHZb+djr8ZfbHYmsysalao6EMvfdihGxW3unxEzVV3xtls8zSZY8f/AH6/npn/AKAnvEdpFpY3F4TEjNhqjlW3vTzKNRbXKdyBtuOd4TiK+JVxVd66vayu7OHtroHOuxPPnMWvWd2LuzOx3ZmLMbCwux1OgEdVXms3r72kXFuyFaniEpUv+JTrEexqDVSDr32GgIXUnmBcdBe47xhaJGBo06LU6Hdz1KSOWqf/AKOM1wLtpt93ykfocVxCKESvVRRsqVHVR5AGwmI7liWYkkkkkm5JOpJPMzdfaLySS9ZraadnqpxuFxHD3y+0W9fD6KoDDdQFACi55Dao3Sa+vQdOF02IZT9uY8wVK0svwIZD8RI/QxDIwdGZGGzIxVhfQ2Yay7iOI1nXI9ao63zZXd2W+vesTa+p18Zmj9ks8+9aTjH42jVo0eMMV9tTU0ilverr/dsR0W7P5BeksdikZ8FxM6sz0zqd2YpUJ8ySfnIXhqL1GWkgLEsLKLkXOmYjl5ySYvhGJw7utGs9Gj3e+1f2ascoDGwNzrflMs+F48m7vT1w9DgcKMYyqa+I7lBHFwtPQu7Kd8wsPJh1MweFdpXpYilWyUkRW760qNNLo2jAlRc6G4BO4E1vEq7syq1dq+UWBLOyrfcJn1toOQ2mFN053kss6+JEi7a8HFDEF0/uaw9pSI211ZR5E3Hgwkdl+rjKjqtN6jsqWyozsVWwsMqk2XTTSWJsTnZcrYRETUkREBERAREQEREBERAREQEyMJhHqEhbADVmYhUQdWY7fU8rzHEycVic1kQFUX3V/wA7W3c8z8BoII2OGOHRlRE+01GIUM91pgnQWT3nHi1vKeeIccrs7U0qsqBrIKYCKbaXASxsdxe+898DC0kqYx1zBSKaKTbMz+/YjYhM3rM7iuK+zMlTDU6S06iBqdTIWf8AeXM5NiDytzEn5X8KYfCVEw9Wti3cI6MtOk7MWdyO62Vj3bGx689BvFpmtUq4mqgd2d3YKC1za5toOQ56TZca4cEYUES7l+4q2ZwigjM5HNyc1uQXlNZfM8NLToOwZlUkKLsQNBpfU+QJ8gektSVYSihwlWlnVXpEu9QAsgD2RkDD3nyrlvtqQDa5mJ2exB9uEpBEOVyrOFLuwUlULtogLW0W2nM7xs6+mNS4E9s9R6dFNLNUcd6/4Aly3mNJ5q8O9irPVs3fKU1Um1Qru+bcINNtSTbTUj3xqmqvTpM4dkS1V117z1HdgOts/rK9p8etbEMUN0QBEttlXmPMkn0gskbTBcXrJhKlXuopIpUkRFUZiLs97XJVQbEneRapUZjmYlj1Ykn1MkVFUxGBp0EdFq0ndijsEzhixupOhOo9D4TT1aC0/edHfkqEOq+LOO6T0Av47WKF3ZGHERNSREQEREBERAREQEREBERAREQEREBERA3PGsSnsMLRQ91aftH1++5N7+Is3wMcLxqPSbB1myoTmpvv7J/H9w8+lz5inZ6mCMUcqsVwzul1VrMKlMXAINjYsL+JlzEoGwftKiIlUVgtJgiozqUJbMqgZlU5bPbc2vJdJLZtjjF4nDE01qMgvcZWDI37ynUEHw+Mpj+OVqubNkXMLOaaBC/52GreV7eEv8FWnRC4msqsrNlpq6Z1cKVNRspsLBTkB6uT92YvG8CKNZlU3puA9FvxU31U+YHdPipm/LLLJvbDWs4VqYYhGILKDoSuxI52vLUllTCU65pUAiU8QtLDuhAAXEBqSMyPy9pcsVY+97p5GabHYNnxlWjTUXNeoiKBYDvsBoNFUAeQAiUywsayVkkxVChVw7JQyl8NZ8wTI1SnYLUZjfvENZxfZWI5TC4BURBXqPRSsqU1zK4vo1ampKtur5WazDYxs6asm2niSHivDUp4b2lNlem9dTTcgZwvs3zU35qym1xsdDPOCw/9jarRXPWFfLUIXM6JlupUa5VLXu46AXjZ+u71/loJWbPi9CoFoVKjFjUpkgFcpUByLE/eNwTfoRNZNTlNXRERDCIiAiIgIiICIiAiIgIiICIiAiJ6RC2gt8WUfUiZbJN1uONyupPKtOqym6syna6kj4aSjuWN2JJ6kkn1MyHwhsBY58zKV5myKwYDmvftcaaTGYWNv/PzEnHPHL1XTk4s+PxlNDOSACSQNgSbDyHKGckAEkgaAE7eA6S6lBiM9swAzEBlJsP3Qb+G2krXw5UvbVFYqGBFjY20PM+Uz9mPbrvy28HJ176ulpnYm5JJFrEk3FttfCFqMDmDEHXUE31318ZRVubD6gfMzI+ykKxbQ2BXUEN3suVSDYnW9t9PGMs8cfdZx8WfJvrN6Y6uRqCQdtDbfcaQrkAgEgHcAnXz6ytSmVNmFj05/Ecp7o0GfRbb21ZR8ibyrljJ2t8ImGVy6yXf0t5ja1za97X0vte3WFYg3BIPUGx9RMiph9ioNsiswOhTwe/unS9j1mNMxyxym4rk4s+PLWU09VHZjdmJPUkn6zzMqjhDcZrBTmGbMpCnIzAsQe6O7z6iWGpsACRYHa/PxA6eMycmNy6yqy4OSYzKy6eIiJ0cSIiAiIgIiICIiAiIgIiICIiAnqkRmGa9ri9t7c7TzEyzc02XV2yvtQIZdUuWIyGy2IAyFBpkFgRzBvvc3xYiRhhMfEdOXmz5bLld1ep1Aqtp3iRY2HdA3Kk7E7XGtr7XuPWLrByGGYb90sWC31shOy3vpy22AmPEfrx7dvlv78+n69+FJmriwpsoIXKoBXutmGue494k7g6ZdNNb4cRnxzP2zi5s+K243W1Wtc21FzaXKFRVOZgGsDYEAgnYZgdwN/hLUSrjLj1qcc7MpnPc8smpiMyBSWuAL94lXt94rsrWJuQLHTa0xoiZjjjjNQ5OXLkvbK7rJpYgIEsoJBJbkSCLBMw1Cga6c9eUtV2Ba4LNoNXN2001PM6DWW4mY8eON7T2vLnzywmFvieiIidHEiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgf/2Q==">
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="container " style="margin-right: 50px;padding: 0">
+                <div class="noi_dung">
+                    <img style="width: 250px;height: 100px"
+                         src="https://thumbs.dreamstime.com/b/luxury-hotel-puri-bagus-lovina-villa-resort-spa-bali-indonesia-january-territory-swimming-pool-island-130186912.jpg"
+                         alt="Hình Ảnh Minh Họa 1">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <i style="color: #0c5460" class="bi bi-geo-alt-fill"> </i>
+            <span style="color: black"> &ensp;103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà Nẵng, Việt Nam
+            7.0 km từ Sân bay Quốc tế Đà Nẵng</span>
+
+        </div>
+        <div class="col-3">
+            <i style="color: #0c5460" class="bi bi-telephone-fill"></i>&ensp; <span>0333-333-333</span><br>
+            <i style="color: #0c5460" class="bi bi-envelope-fill"></i> &emsp;<span>furama@gmail.com</span>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg bg-color " style="padding: 0; margin-top: 30px;width: 100%">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="navbar-nav ">
+                        <a class="nav-link center-box " style=" font-size: 30px;font-weight: bold" aria-current="page" href="http://localhost:63342/furama_prototype/home.html?_ijt=npfsggmfgbakmso4amn9hggbej&_ij_reload=RELOAD_ON_SAVE">
+                            <p class="mt-3" style="color: white">Home</p></a>
+                        <a class="nav-link center-box" style="margin-left: 100px ;font-size: 30px;font-weight: bold" href="http://localhost:63342/furama_prototype/facility.html?_ijt=jln8d95m625lf3j9sp9vrruv6s&_ij_reload=RELOAD_ON_SAVE"><p class="mt-3" style="color: white">
+                            Facility</p></a>
+                        <a class="nav-link center-box" style="margin-left: 100px;font-size: 30px;font-weight: bold" href="http://localhost:63342/furama_prototype/contract.html?_ijt=3el26ngg5e3fdcuqar3iai8svk&_ij_reload=RELOAD_ON_SAVE"><p class="mt-3" style="color: white">
+                            Contract</p></a>
+                        <a class="nav-link center-box" style="margin-left: 100px;font-size: 30px;font-weight: bold" href="http://localhost:63342/furama_prototype/customer.html?_ijt=eq7j32l2hgtsuglobi72nap3nc&_ij_reload=RELOAD_ON_SAVE" tabindex="-1" aria-disabled="true"><p
+                                class="mt-3" style="color: white">Customer</p></a>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+
+
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-4" style="margin-bottom: 20px">
+        <div class="row">
+            <div class="col-12 ">
+                <img style="width: 100%"
+                     src="https://pix10.agoda.net/hotelImages/109/10953/10953_16030216470040397599.jpg?ca=6&ce=1&s=1024x768">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 ">
+                <img style="width: 100%"
+                     src="https://furamavietnam.com/wp-content/uploads/2022/03/frm-03-1-762x563.jpg">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 ">
+                <img style="width: 100%"
+                     src="https://furamavietnam.com/wp-content/uploads/2018/03/%5E19BFC67D7D58B6D3C155DB9CA96927213F31F8C8E7F909F3E2%5Epimgpsh_fullsize_distr-1047x563.jpg">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12 ">
+                <img style="width: 100%"
+                     src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/207702593.jpg?k=fa65678d9e9530d6f2cd3cd87313a3eaf4ae861d05f8290971a6c3cbc33308fb&o=">
+            </div>
+
+        </div>
+    </div>
+    <div class="col-8">
+        <iframe style="width: 100% ;height: 800px ;margin-top: 12px" src="https://www.youtube.com/embed/PgvSSl4jm1U"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <br> <br>
+        <h4>Furama Resort Đà Nẵng | Giải Trí | Du Lịch</h4>
+        <br>
+        <span> <i class="bi bi-eye-fill"></i> 383</span>
+        &emsp; <i class="bi bi-hand-thumbs-up"></i> &ensp; 512
+        &emsp; <i class="bi bi-hand-thumbs-down"></i> &ensp;5
+        &emsp; <i class="bi bi-share"></i> &emsp; Chia sẻ
+        &emsp; <i class="bi bi-scissors"></i> &emsp; Tạo đoạn video
+        &emsp; <i class="bi bi-download"></i> &emsp; Lưu
+        <hr>
+        <h3><span> <i class="bi bi-app"></i> Du lịch</span></h3>
+        <span>
+        <button style="margin-right: 300px; background-color: crimson; color: whitesmoke; height: 45px;width: 130px ;font-size: 30px"> Đăng ký</button>
+</span>
+        <br>Furama Resort Đà Nẵng</br>
+        ● Furama Resort Đà Nẵng tọa lạc trên bãi biển Bắc Mỹ An một trong những bờ biển đẹp của Việt Nam, nổi tiếng sạch
+        đẹp với bờ cát trắng mịn, biển xanh trong .Khu nghỉ dưỡng Furama đã vinh dự đón tiếp những vị khách nổi tiếng
+        của hoàng gia cũng như những chính trị gia. Khu nghỉ dưỡng là cửa ngõ đi đến Di sản thế giới được UNESCO công
+        nhận: phố cổ Hội An, thánh địa Mỹ Sơn và cố đô Huế. Kiến trúc của Furama được pha trộn thiết kế truyền thống của
+        Việt Nam và kiến trúc thời Pháp , được bố trí hài hòa, mỗi dãy phòng là một thiên đường của sự sang trọng và
+        khéo léo. </br>
+        ● Furama Resort Đà Nẵng ẩn mình dưới hàng dừa đung đưa trong gió dưới những buổi chiều tà, ngâm mình trong hồ
+        bơi được Resort thiết kế trước biển, bạn có thể ngắm cảnh thiên nhiên, lắng nghe tiếng sóng biển vỗ đều đều mang
+        lại cho bạn cảm giác thoải mái khi nghỉ dưỡng tại đây. Những túp lều nhỏ xinh gần bờ biển giúp bạn được ngắm
+        biển gần hơn, tận hưởng vẻ đẹp của thiên nhiên.<br>
+        Thảo Uyên – ĐẶT PHÒNG TOÀN QUỐC <br>
+        www.uyendepgai.com.vn <br>
+        Dịch vụ của chúng tôi bao gồm:<br>
+        + Đặt phòng khách sạn- resorts trên toàn quốc.<br>
+        + Tổ chức các tour ghép đoàn quốc tế đến các điểm du lịch nổi tiếng như Bali - Phuket...<br>
+        + Tổ chức tour hội thảo – team building.<br>
+        + Tổ chức Tour du lịch Nội Địa CLC cho khách lẻ và khách nhóm.<br>
+        + Tư vấn du lịch miễn phí cho mọi đối tưọng khách hàng.<br>
+        Dịch vụ chuyên nghiệp, tin cậy, linh hoạt , giá cả cạnh tranh, chế độ chăm sóc khách hàng chu đáo…<br>
+        Để biết thêm thông tin & đặt phòng vui lòng liên hệ:<br>
+        Ms. Thảo uyên – 0905.333.333 – uyendepgai@vdtours.vn<br>
+        Ms. Hảo ngu – 0908.68.68.68 – haongulam@tours.vn<br>
+        Ms. Hảo ko ngu – 0979802215 - haokongu@vdtours.vn<br>
+        Công ty TNHH Phát triển Du lịch Việt nam<br>
+        ✔ Add: Số 295, Nguyễn Tất Thành, Hải Châu, Đà nẵng<br>
+        ✔ Office : Số 295, Nguyễn Tất Thành, Hải Châu, Đà nẵng<br>
+        ✔ Tel: +84 -935.333.33<br>
+        ✔ Email: vdtours@vnn.vn<br>
+        ✔ Web: www.webuyenkute.com<br>
+        </p>
+    </div>
+</div>
+<div class="card text-center" style="background-color: #0c544e;color: white">
+    <div class="card-header" style="font-size: 30px">
+        ғᴜʀᴀᴍᴀ
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text"><i class="bi bi-telephone-outbound" style="font-size: 50px"></i>: 0333.333.333
+            <br>
+            <i class="bi bi-envelope-open-heart"></i>: furama@gmail.com.vn
+            </br>
+            <i class="bi bi-house-heart"></i>: Đà Nẵng
+        </p>
+    </div>
+</div>
+
+</body>
+<script src="/bootstrap/bootstrap413/js/bootstrap.bundle.js"></script>
+</html>
