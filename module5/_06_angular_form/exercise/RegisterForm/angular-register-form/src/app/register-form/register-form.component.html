@@ -1,45 +1,57 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-  <div class="form-row">
-    <div class="form-group">
+  <div class="row">
+    <div class="form-control">
       <label >Email</label>
-      <input type="text" class="form-control" name="email"  placeholder=" Enter email" formControlName="email">
+      <input type="text" class="form-control" placeholder=" Enter email" formControlName="email">
+      <p *ngIf="contactForm.controls.email.hasError('required') && contactForm.controls.email.touched">Not require</p>
     </div>
+    <div class="row mt-4">
     <div class="form-group col-md-6">
       <label >Password</label>
       <input type="password" placeholder=" Enter password" name="password" class="form-control" formControlName="password" >
+      <p *ngIf="contactForm.controls.password.hasError('required') && contactForm.controls.password.touched">Not require</p>
+      <p *ngIf="contactForm.controls.password.hasError('minlength')">No less than 6 characters </p>
     </div>
     <div class="form-group col-md-6">
       <label>Confirm Password</label>
       <input type="password" name="confirmPassword" placeholder=" Confirm password"class="form-control" formControlName="confirmPassword" >
+      <p *ngIf="contactForm.controls.confirmPassword.hasError('required') && contactForm.controls.confirmPassword.touched">Not require</p>
+      <p *ngIf="contactForm.controls.confirmPassword.hasError('minlength')">No less than 6 characters </p>
     </div>
   </div>
-  <div class="form-group">
+  <div class="mt-4">
     <label>Country</label>
-    <input name="country" type="text" placeholder=" Enter country" class="form-control" formControlName="country" >
+    <select formControlName="country" class="form-control">
+      <option value="USA">---Country---</option>
+      <option value="USA">USA</option>
+      <option value="VIETNAM">VIET NAM</option>
+      <option value="JAPAN">JAPAN</option>
+    </select>
+    <p *ngIf="contactForm.controls.country.hasError('required') && contactForm.controls.country.touched">Not require</p>
   </div>
-  <div class="form-row">
+  <div class="row mt-4">
     <div class="form-group col-md-4">
       <label >Age</label>
       <input name="age" placeholder=" Enter age" type="text" class="form-control" formControlName="age">
+      <p *ngIf="contactForm.controls.age.hasError('required') && contactForm.controls.age.touched">Not require</p>
+      <p *ngIf="contactForm.controls.age.hasError('min')"> More than 18</p>
     </div>
     <div class="form-group col-md-4">
       <label >Gender</label>
-      <select  name="gender" class="form-control" formControlName="gender">
-        <option [ngValue]="form.id" *ngFor="let form of genderList"]></option>
-      </select>
+     <select formControlName="gender" class="form-control">
+       <option value="Female">---Gender---</option>
+       <option value="Female">Female</option>
+       <option value="Male">Male</option>
+     </select>
+      <p *ngIf="contactForm.controls.gender.hasError('required') && contactForm.controls.gender.touched">Not require</p>
     </div>
     <div class="form-group col-md-4">
       <label>Phone</label>
       <input name="email" placeholder=" Enter Phone"type="text" class="form-control" formControlName="email">
+      <p *ngIf="contactForm.controls.phone.hasError('required') && contactForm.controls.phone.touched">Not require</p>
+      <p *ngIf="contactForm.controls.phone.hasError('pattern')">Wrong format!</p>
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
+  <button type="submit" class="btn btn-primary mt-5">Sign in</button>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
