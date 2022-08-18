@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Facility} from "./facility";
 
 @Component({
   selector: 'app-facility',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./facility.component.css']
 })
 export class FacilityComponent implements OnInit {
+  facilityList: Facility[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
