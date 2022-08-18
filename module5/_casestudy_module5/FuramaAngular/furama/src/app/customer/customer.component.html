@@ -1,6 +1,6 @@
-<table class="table table-striped" style="height: 600px">
+<table class="table table-striped">
   <thead>
-  <tr>
+  <tr style="height: 70px">
     <th style="height: 70px" class="border-0 text-white bg-dark">ID</th>
     <th style="height: 70px" class="border-0  text-white bg-dark">CUSTOMER TYPE</th>
     <th style="height: 70px" class="border-0 text-white  bg-dark">NAME</th>
@@ -23,86 +23,16 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Kh-0001</td>
-    <td>Diamond</td>
-    <td>Nguyễn Thảo Uyên</td>
-    <td>13-08-1999</td>
-    <td>Nữ</td>
-    <td>9999.9999</td>
-    <td>0905.999.999</td>
-    <td>girl9xtimboy2k@gmail.com</td>
-    <td>Đà Nẵng</td>
-    <td>sua</td>
-    <td>sua</td>
-    <td>sua</td>
-  </tr>
-  <tr>
-    <td>Kh-0001</td>
-    <td>Diamond</td>
-    <td>Nguyễn Thảo Uyên</td>
-    <td>13-08-1999</td>
-    <td>Nữ</td>
-    <td>9999.9999</td>
-    <td>0905.999.999</td>
-    <td>girl9xtimboy2k@gmail.com</td>
-    <td>Đà Nẵng</td>
-    <td>sua</td>
-    <td>sua</td>
-    <td>sua</td>
-  </tr>
-  <tr>
-    <td>Kh-0001</td>
-    <td>Diamond</td>
-    <td>Nguyễn Thảo Uyên</td>
-    <td>13-08-1999</td>
-    <td>Nữ</td>
-    <td>9999.9999</td>
-    <td>0905.999.999</td>
-    <td>girl9xtimboy2k@gmail.com</td>
-    <td>Đà Nẵng</td>
-    <td>sua</td>
-    <td>sua</td>
-    <td>sua</td>
-  </tr>
-  <tr>
-    <td>Kh-0001</td>
-    <td>Diamond</td>
-    <td>Nguyễn Thảo Uyên</td>
-    <td>13-08-1999</td>
-    <td>Nữ</td>
-    <td>9999.9999</td>
-    <td>0905.999.999</td>
-    <td>girl9xtimboy2k@gmail.com</td>
-    <td>Đà Nẵng</td>
-    <td>sua</td>
-    <td>sua</td>
-    <td>sua</td>
-  </tr>
-  <tr>
-    <td>Kh-0001</td>
-    <td>Diamond</td>
-    <td>Nguyễn Thảo Uyên</td>
-    <td>13-08-1999</td>
-    <td>Nữ</td>
-    <td>9999.9999</td>
-    <td>0905.999.999</td>
-    <td>girl9xtimboy2k@gmail.com</td>
-    <td>Đà Nẵng</td>
-    <td>sua</td>
-    <td>sua</td>
-    <td>sua</td>
-  </tr>
-  <tr>
-    <td>Kh-0001</td>
-    <td>Diamond</td>
-    <td>Nguyễn Thảo Uyên</td>
-    <td>13-08-1999</td>
-    <td>Nữ</td>
-    <td>9999.9999</td>
-    <td>0905.999.999</td>
-    <td>girl9xtimboy2k@gmail.com</td>
-    <td>Đà Nẵng</td>
+  <tr *ngFor="let customer of customerList">
+    <td>{{customer.id}}</td>
+    <td>{{customer.customerType}}</td>
+    <td>{{customer.name}}</td>
+    <td>{{customer.dateOfBirth}}</td>
+    <td>{{customer.gender}}</td>
+    <td>{{customer.indentity}}</td>
+    <td>{{customer.phone}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.address}}</td>
     <td>sua</td>
     <td>sua</td>
     <td>sua</td>
