@@ -7,11 +7,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-  genderList = [
-    {id: 1, name: 'Female'},
-    {id: 2, name: 'Male'},
-    {id: 0, name: 'Orther'},
-  ];
+
   contactForm = new FormGroup({
       email: new FormControl('',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
       password: new FormControl('',[Validators.required,Validators.minLength(6)]),
