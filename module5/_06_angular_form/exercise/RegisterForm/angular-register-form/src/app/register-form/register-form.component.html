@@ -1,0 +1,45 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group">
+      <label >Email</label>
+      <input type="text" class="form-control" name="email"  placeholder=" Enter email" formControlName="email">
+    </div>
+    <div class="form-group col-md-6">
+      <label >Password</label>
+      <input type="password" placeholder=" Enter password" name="password" class="form-control" formControlName="password" >
+    </div>
+    <div class="form-group col-md-6">
+      <label>Confirm Password</label>
+      <input type="password" name="confirmPassword" placeholder=" Confirm password"class="form-control" formControlName="confirmPassword" >
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Country</label>
+    <input name="country" type="text" placeholder=" Enter country" class="form-control" formControlName="country" >
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label >Age</label>
+      <input name="age" placeholder=" Enter age" type="text" class="form-control" formControlName="age">
+    </div>
+    <div class="form-group col-md-4">
+      <label >Gender</label>
+      <select  name="gender" class="form-control" formControlName="gender">
+        <option [ngValue]="form.id" *ngFor="let form of genderList"]></option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Phone</label>
+      <input name="email" placeholder=" Enter Phone"type="text" class="form-control" formControlName="email">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
