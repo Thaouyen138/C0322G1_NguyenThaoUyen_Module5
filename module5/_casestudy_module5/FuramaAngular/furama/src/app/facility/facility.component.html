@@ -1,16 +1,17 @@
 <div class="body" style="width: 100%">
   <div style="margin-left: 100px" class="row space-around">
-    <div class="col-4">
-      <div class="card" style="width: 22rem;">
+    <div class="col-4" *ngFor="let facility of facilityList">
+      <div class="card" style="width: 22rem; margin-top: 30px">
         <img
           src="https://furamavietnam.com/wp-content/uploads/2018/03/%5E224942630D3A5A787C2989A9F5AF4A3E34E6A8CAE8D94FA3D4%5Epimgpsh_fullsize_distr-1047x563.jpg"
           class="card-img-top" alt="...">
-        <div class="card-body">
+        <div class="card-body" >
           <h4 class="card-text"> OCEAN SUITE</h4>
-          <div>Room size: 85.8m2</div>
-          <div>Max people: 4</div>
-          <div>Price: 4000$</div>
-          <div>Standard: VIP</div>
+          <div>ID: {{facility.id}}</div>
+          <div>Room size: {{facility.sizeRoom}}</div>
+          <div>Max people: {{facility.maxPeople}}</div>
+          <div>Price: {{facility.price}}$</div>
+          <div>Standard: {{facility.standard}}</div>
           <div style="margin-top: 10px" class="space-around">
             <span>
               <button type="button" class="btn btn-warning " style="color: black;border: white">
