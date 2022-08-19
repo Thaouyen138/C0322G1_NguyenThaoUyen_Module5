@@ -4,6 +4,7 @@
       <label >Email</label>
       <input type="text" class="form-control" placeholder=" Enter email" formControlName="email">
       <p *ngIf="contactForm.controls.email.hasError('required') && contactForm.controls.email.touched">Not require</p>
+      <p *ngIf="contactForm.controls.email.hasError('email') && contactForm.controls.email.touched">Wrong format</p>
     </div>
     <div class="row mt-4">
     <div class="form-group col-md-6">
@@ -16,6 +17,7 @@
       <label>Confirm Password</label>
       <input type="password" name="confirmPassword" placeholder=" Confirm password"class="form-control" formControlName="confirmPassword" >
       <p *ngIf="contactForm.controls.confirmPassword.hasError('required') && contactForm.controls.confirmPassword.touched">Not require</p>
+      <p *ngIf="contactForm.hasError('confirmPass') && contactForm.controls.confirmPassword.touched">Not matches</p>
       <p *ngIf="contactForm.controls.confirmPassword.hasError('minlength')">No less than 6 characters </p>
     </div>
   </div>
@@ -47,7 +49,7 @@
     </div>
     <div class="form-group col-md-4">
       <label>Phone</label>
-      <input name="email" placeholder=" Enter Phone"type="text" class="form-control" formControlName="email">
+      <input name="email" placeholder=" Enter Phone"type="text" class="form-control" formControlName="phone">
       <p *ngIf="contactForm.controls.phone.hasError('required') && contactForm.controls.phone.touched">Not require</p>
       <p *ngIf="contactForm.controls.phone.hasError('pattern')">Wrong format!</p>
     </div>

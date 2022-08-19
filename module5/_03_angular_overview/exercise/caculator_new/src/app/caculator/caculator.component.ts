@@ -72,10 +72,10 @@ export class CaculatorComponent implements OnInit {
       case "-":
         this.result += '-';
         break;
-      case "+":
+      case "*":
         this.result += '*';
         break;
-      case "+":
+      case "/":
         this.result += '/';
         break;
     }
