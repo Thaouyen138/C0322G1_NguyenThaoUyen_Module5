@@ -14,49 +14,9 @@ export class CaculatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add8() {
-    this.result += 8;
-  }
 
   getResult() {
     this.result = eval(this.result);
-  }
-
-
-  add7() {
-    this.result += 7
-  }
-
-  add9() {
-    this.result += 9
-  }
-
-  add1() {
-    this.result += 1
-  }
-
-  add2() {
-    this.result += 2
-  }
-
-  add3() {
-    this.result += 3
-  }
-
-  add4() {
-    this.result += 4
-  }
-
-  add5() {
-    this.result += 5
-  }
-
-  add6() {
-    this.result += 6
-  }
-
-  add0() {
-    this.result += 0
   }
 
   delete() {
@@ -79,5 +39,9 @@ export class CaculatorComponent implements OnInit {
         this.result += '/';
         break;
     }
+  }
+
+  add(number: number) {
+    this.result+=''+ number;
   }
 }
