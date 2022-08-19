@@ -1,22 +1,19 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="form-control">
-      <label >Email</label>
+      <label>Email</label>
       <input type="text" class="form-control" placeholder=" Enter email" formControlName="email">
       <p *ngIf="contactForm.controls.email.hasError('required') && contactForm.controls.email.touched">Not require</p>
+      <p *ngIf="contactForm.controls.email.hasError('email') && contactForm.controls.email.touched">Wrong format</p>
     </div>
-    <div class="row mt-4">
-      <div class="form-group col-md-6">
-        <label >Password</label>
-        <input type="password" placeholder=" Enter password" name="password" class="form-control" formControlName="password" >
-        <p *ngIf="contactForm.controls.password.hasError('required') && contactForm.controls.password.touched">Not require</p>
+    <div class="row p-0 m-0  ">
+      <div class="form-group ">
+        <label>Password</label>
+        <input type="password" placeholder=" Enter password" name="password" class="form-control"
+               formControlName="password">
+        <p *ngIf="contactForm.controls.password.hasError('required') && contactForm.controls.password.touched">Not
+          require</p>
         <p *ngIf="contactForm.controls.password.hasError('minlength')">No less than 6 characters </p>
-      </div>
-      <div class="form-group col-md-6">
-        <label>Confirm Password</label>
-        <input type="password" name="confirmPassword" placeholder=" Confirm password"class="form-control" formControlName="confirmPassword" >
-        <p *ngIf="contactForm.controls.confirmPassword.hasError('required') && contactForm.controls.confirmPassword.touched">Not require</p>
-        <p *ngIf="contactForm.controls.confirmPassword.hasError('minlength')">No less than 6 characters </p>
       </div>
     </div>
     <button type="submit" class="btn btn-primary mt-5">Sign in</button>
