@@ -1,0 +1,11 @@
+.menu-home{
+  border: 0;
+  background: none;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-home:hover{
+  background: #4fc2a0;
+  color: white;
+}

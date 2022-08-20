@@ -6,12 +6,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DictionaryComponent } from './dictionary/dictionary/dictionary.component';
+import { DetailComponent } from './dictionary/detail/detail.component';
 
 // @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
-    DictionaryComponent
+    DictionaryComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
