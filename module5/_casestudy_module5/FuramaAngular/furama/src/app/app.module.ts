@@ -8,6 +8,7 @@ import { FacilityComponent } from './facility/facility.component';
 import { ContractComponent } from './contract/contract.component';
 import { CustomerComponent } from './customer/customer.component';
 import { FooterComponent } from './footer/footer.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Facility} from "./facility";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-facility',
@@ -79,10 +80,37 @@ export class FacilityComponent implements OnInit {
       standard: 'GOOD'
     },
     ];
+  facilityForm = new FormGroup(
+    {
+      id: new FormControl('',[Validators.required]),
+      sizeRoom: new FormControl('',[Validators.required]),
+      maxPeople: new FormControl('',[Validators.required]),
+      price: new FormControl('',[Validators.required]),
+      standard: new FormControl('',[Validators.required])
+    }
+  )
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+    const facility = this.facilityForm.value;
+    this.facilityList.push(facility);
+  }
+
+  edit(facility: Facility) {
+    this.facilityForm.patchValue(facility);
+  }
+
+  update() {
+    const facility = this.facilityForm.value;
+    console.log(facility)
+    for (let i = 0; i < this.facilityList.length; i++) {
+      if (this.facilityList[i].id === facility.id){
+        this.facilityList[i] = facility;
+      }
+    }
+  }
 }

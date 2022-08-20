@@ -1,3 +1,6 @@
+<button class="btn btn-outline-warning center-box form-control text-dark" data-toggle="modal" data-target="#addNew">
+  Add New
+</button>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -24,3 +27,84 @@
   </tr>
   </tbody>
 </table>
+<!--Modal add new-->
+<div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header center-box border-0">
+        <h5 class="modal-title ">ADD NEW CONTRACT</h5>
+      </div>
+      <div class="modal-body border-0">
+        <form [formGroup]="contractForm">
+          <div class="form-group">
+            <label>Id:</label>
+            <input type="text" class="form-control" formControlName="id">
+            <p
+              *ngIf="contractForm.controls.id.hasError('required')
+              &&( contractForm.controls.id.touched || contractForm.controls.id.dirty)">
+              Not Empty
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Facility:</label>
+            <input type="string" class="form-control" formControlName="facilityId">
+            <p
+              *ngIf="contractForm.controls.facilityId.hasError('required')
+              &&( contractForm.controls.facilityId.touched || contractForm.controls.facilityId.dirty)">
+              Not Empty
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Customer:</label>
+            <input type="string" class="form-control" formControlName="customerId">
+            <p
+              *ngIf="contractForm.controls.customerId.hasError('required')
+              &&( contractForm.controls.customerId.touched || contractForm.controls.customerId.dirty)">
+              Not Empty
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Facility:</label>
+            <input type="string" class="form-control" formControlName="startDate">
+            <p
+              *ngIf="contractForm.controls.startDate.hasError('required')
+              &&( contractForm.controls.startDate.touched || contractForm.controls.startDate.dirty)">
+              Not Empty
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Facility:</label>
+            <input type="string" class="form-control" formControlName="endDate">
+            <p
+              *ngIf="contractForm.controls.facilityId.hasError('required')
+              &&( contractForm.controls.endDate.touched || contractForm.controls.endDate.dirty)">
+              Not Empty
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Facility:</label>
+            <input type="string" class="form-control" formControlName="desposit">
+            <p
+              *ngIf="contractForm.controls.desposit.hasError('required')
+              &&( contractForm.controls.desposit.touched || contractForm.controls.desposit.dirty)">
+              Not Empty
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Facility:</label>
+            <input type="string" class="form-control" formControlName="total">
+            <p
+              *ngIf="contractForm.controls.total.hasError('required')
+              &&( contractForm.controls.total.touched || contractForm.controls.total.dirty)">
+              Not Empty
+            </p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="contractForm.invalid" (click)="onSubmit()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

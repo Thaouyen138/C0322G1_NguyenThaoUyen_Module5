@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Contract} from "./contract";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-contract',
@@ -36,11 +37,27 @@ export class ContractComponent implements OnInit {
       total: 2400
     }
   ]
-
+  contractForm = new FormGroup(
+    {
+      id: new FormControl('',[Validators.required]),
+      facilityId: new FormControl('',[Validators.required]),
+      customerId: new FormControl('',[Validators.required]),
+      startDate: new FormControl('',[Validators.required]),
+      endDate: new FormControl('',[Validators.required]),
+      desposit: new FormControl('',[Validators.required]),
+      total: new FormControl('',[Validators.required])
+    }
+  )
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
+
+  onSubmit() {
+    const contract = this.contractForm.value;
+    this.contractList.push(contract);
+    this.contractForm.reset()
+  }
 }
