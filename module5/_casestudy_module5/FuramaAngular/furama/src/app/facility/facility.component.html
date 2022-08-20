@@ -1,6 +1,4 @@
-<button class="btn btn-outline-warning center-box form-control text-dark" data-toggle="modal" data-target="#addNew">
-  Add New
-</button>
+
 <div class="body" style="width: 100%">
   <div style="margin-left: 100px" class="row space-around">
     <div class="col-4" *ngFor="let facility of facilityList">
@@ -32,7 +30,15 @@
     </div>
   </div>
 </div>
-
+<div class="row mt-5">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <button style="font-weight: bold;font-size: 20px" class="btn btn-dark center-box text-warning form-control" data-toggle="modal" data-target="#addNew">
+      Add New
+    </button>
+  </div>
+  <div class="col-md-4"></div>
+</div>
 <!--Modal add new-->
 <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -55,7 +55,7 @@
             </p>
           </div>
           <div class="form-group">
-            <label>Customer:</label>
+            <label>Customer id: </label>
             <input type="string" class="form-control" formControlName="customerId">
             <p
               *ngIf="contractForm.controls.customerId.hasError('required')
@@ -64,8 +64,8 @@
             </p>
           </div>
           <div class="form-group">
-            <label>Facility:</label>
-            <input type="string" class="form-control" formControlName="startDate">
+            <label>Start date:</label>
+            <input type="date" class="form-control" formControlName="startDate">
             <p
               *ngIf="contractForm.controls.startDate.hasError('required')
               &&( contractForm.controls.startDate.touched || contractForm.controls.startDate.dirty)">
@@ -73,8 +73,8 @@
             </p>
           </div>
           <div class="form-group">
-            <label>Facility:</label>
-            <input type="string" class="form-control" formControlName="endDate">
+            <label>End date:</label>
+            <input type="date" class="form-control" formControlName="endDate">
             <p
               *ngIf="contractForm.controls.facilityId.hasError('required')
               &&( contractForm.controls.endDate.touched || contractForm.controls.endDate.dirty)">
@@ -82,8 +82,8 @@
             </p>
           </div>
           <div class="form-group">
-            <label>Facility:</label>
-            <input type="string" class="form-control" formControlName="desposit">
+            <label>Deposit:</label>
+            <input type="number" class="form-control" formControlName="desposit">
             <p
               *ngIf="contractForm.controls.desposit.hasError('required')
               &&( contractForm.controls.desposit.touched || contractForm.controls.desposit.dirty)">
@@ -91,8 +91,8 @@
             </p>
           </div>
           <div class="form-group">
-            <label>Facility:</label>
-            <input type="string" class="form-control" formControlName="total">
+            <label>Total:</label>
+            <input type="number" class="form-control" formControlName="total">
             <p
               *ngIf="contractForm.controls.total.hasError('required')
               &&( contractForm.controls.total.touched || contractForm.controls.total.dirty)">
