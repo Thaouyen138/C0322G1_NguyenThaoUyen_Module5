@@ -65,6 +65,7 @@ customerList: Customer[] =[
     email: new FormControl('', [Validators.required, Validators.email]),
     address: new FormControl('', Validators.required)
   })
+  idCustomer = '';
   constructor() { }
 
   ngOnInit(): void {
@@ -89,4 +90,17 @@ customerList: Customer[] =[
       }
     }
   }
+  delete(){
+    for (let i = 0; i < this.customerList.length; i++) {
+      if(this.idCustomer === this.customerList[i].id){
+        this.customerList.splice(i,1);
+        break;
+      }
+    }
+  }
+
+  setIdDelete(id: string) {
+    this.idCustomer = id;
+  }
+
 }

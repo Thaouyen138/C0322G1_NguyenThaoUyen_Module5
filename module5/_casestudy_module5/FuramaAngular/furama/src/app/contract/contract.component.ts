@@ -48,6 +48,7 @@ export class ContractComponent implements OnInit {
       total: new FormControl('',[Validators.required])
     }
   )
+  idContract = '';
   constructor() {
   }
 
@@ -59,5 +60,18 @@ export class ContractComponent implements OnInit {
     const contract = this.contractForm.value;
     this.contractList.push(contract);
     this.contractForm.reset()
+  }
+
+  delete(){
+    for (let i = 0; i < this.contractList.length; i++) {
+      if(this.idContract === this.contractList[i].id){
+        this.contractList.splice(i,1);
+        break;
+      }
+    }
+  }
+
+  setIdDelete(id: string) {
+    this.idContract = id;
   }
 }

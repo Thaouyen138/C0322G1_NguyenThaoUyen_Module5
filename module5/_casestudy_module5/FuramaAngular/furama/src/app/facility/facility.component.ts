@@ -89,6 +89,7 @@ export class FacilityComponent implements OnInit {
       standard: new FormControl('',[Validators.required])
     }
   )
+  idFacility = '';
   constructor() {
   }
 
@@ -112,5 +113,18 @@ export class FacilityComponent implements OnInit {
         this.facilityList[i] = facility;
       }
     }
+  }
+
+  delete(){
+    for (let i = 0; i < this.facilityList.length; i++) {
+      if(this.idFacility === this.facilityList[i].id){
+        this.facilityList.splice(i,1);
+        break;
+      }
+    }
+  }
+
+  setIdDelete(id: string) {
+    this.idFacility = id;
   }
 }
