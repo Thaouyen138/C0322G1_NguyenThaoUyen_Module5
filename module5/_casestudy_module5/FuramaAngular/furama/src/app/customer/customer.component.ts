@@ -60,7 +60,7 @@ customerList: Customer[] =[
     name: new FormControl('', Validators.required),
     dateOfBirth: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
-    indentity: new FormControl('', [Validators.required,Validators.pattern('^[0-9]{9}')]),
+    indentity: new FormControl('', [Validators.required,Validators.pattern(/^[0-9]{6,9}$/)]),
     phone: new FormControl('' , [Validators.required, Validators.pattern('^\\+84\\d{9,10}$')]),
     email: new FormControl('', [Validators.required, Validators.email]),
     address: new FormControl('', Validators.required)
@@ -70,7 +70,6 @@ customerList: Customer[] =[
 
   ngOnInit(): void {
   }
-
   onSubmit() {
     const  customer = this.customerForm.value;
     this.customerList.push(customer);

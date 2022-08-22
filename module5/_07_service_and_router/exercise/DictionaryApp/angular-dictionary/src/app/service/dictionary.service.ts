@@ -1,16 +1,30 @@
 // @ts-ignore
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Dictionary} from "../dictionary/dictionary/dictionary";
 
 // @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
 export class DictionaryService {
-  dictionary: string[][] =
-    [
-      ['dog','cat','buffalo','fish'],
-      ['con chó', 'con mèo', 'con trâu', 'con cá'],
-      ['con chó giữ nhà', 'con mèo bắt chuột', 'con trâu đi cày','con cá biết bơi']
-    ]
-  constructor() { }
+  dictionary: Dictionary[] = [
+    {
+      word: 'cat',
+      mean: 'con mèo',
+      detail: 'con mèo kêu meo meo'
+    },
+    {
+      word: 'dog',
+      mean: 'con chó',
+      detail: 'con chó trông nhà'
+    },
+    {
+      word: 'bufallo',
+      mean: 'con trâu',
+      detail: 'con trâu đi cày'
+    }
+  ]
+
+  constructor() {
+  }
 }

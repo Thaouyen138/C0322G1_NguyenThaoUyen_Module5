@@ -4,9 +4,9 @@
     <th>Tiếng Việt</th>
     <th>Mô Tả</th>
   </tr>
-  <tr *ngFor = 'let word of dictionary[0]; let i = index'>
-    <td>{{dictionary[0][i]}}</td>
-    <td>{{dictionary[1][i]}}</td>
-    <td><button routerLink="/detail/{{dictionary[2][i]}}">Chi tiết</button></td>
+  <tr *ngFor = 'let object of dictionary; let i = index'>
+    <td>{{object.word}}</td>
+    <td>{{object.mean}}</td>
+    <td><button routerLink="/detail/{{object.detail}}">Chi tiết</button></td>
   </tr>
 </table>

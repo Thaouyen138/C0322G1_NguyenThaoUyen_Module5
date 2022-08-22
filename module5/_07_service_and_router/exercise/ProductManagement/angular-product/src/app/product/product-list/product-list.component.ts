@@ -9,17 +9,27 @@ import {Product} from "../../model/product";
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  idProduct= 0;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.getAll();
   }
-  getAll() {
+  getAll(){
     this.products = this.productService.getAll();
   }
 
-  delete(i: number) {
-    this.productService.delete(i);
+  delete(){
+    for (let i = 0; i < this.products.length; i++) {
+      if(this.idProduct === this.products[i].id){
+        this.products.splice(i,1);
+        break;
+      }
+    }
+  }
+
+  setIdDelete(id: number) {
+    this.idProduct = id;
   }
 }

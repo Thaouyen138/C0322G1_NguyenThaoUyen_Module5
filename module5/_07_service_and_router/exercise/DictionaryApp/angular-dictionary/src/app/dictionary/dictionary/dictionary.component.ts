@@ -1,6 +1,7 @@
 // @ts-ignore
 import { Component, OnInit } from '@angular/core';
 import {DictionaryService} from "../../service/dictionary.service";
+import {Dictionary} from "./dictionary";
 
 // @ts-ignore
 @Component({
@@ -9,7 +10,7 @@ import {DictionaryService} from "../../service/dictionary.service";
   styleUrls: ['./dictionary.component.css']
 })
 export class DictionaryComponent implements OnInit {
-  dictionary: string[][];
+  dictionary: Dictionary[];
 
   constructor(private dictionaryService: DictionaryService) {
   }

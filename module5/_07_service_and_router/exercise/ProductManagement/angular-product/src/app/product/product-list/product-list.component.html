@@ -17,7 +17,28 @@
       <button routerLink="/product/edit/{{product.id}}">Chỉnh sửa</button>
     </td>
     <td>
-      <button (click)="delete(i)">Xóa</button>
+      <button type="button" class="btn btn-danger " style="color: white;border: white" data-toggle="modal" data-target="#delete"
+              (click)="setIdDelete(product.id)">
+        Delete <i class="bi bi-trash3"></i>
+      </button>
     </td>
   </tr>
 </table>
+<!--modal delete-->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header center-box border-0">
+        <h5 class="modal-title ">DELETE FACILITY</h5>
+      </div>
+      <div class="modal-body border-0">
+        Are you sure to delete product have {{idProduct}} Id
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="delete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+

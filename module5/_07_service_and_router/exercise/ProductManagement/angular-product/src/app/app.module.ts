@@ -7,18 +7,22 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { Category1Component } from './category1/category1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductCreateComponent,
     ProductListComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    Category1Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -99,6 +99,7 @@ export class FacilityComponent implements OnInit {
   onSubmit() {
     const facility = this.facilityForm.value;
     this.facilityList.push(facility);
+    this.facilityForm.reset()
   }
 
   edit(facility: Facility) {
