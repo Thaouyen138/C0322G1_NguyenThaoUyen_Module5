@@ -1,5 +1,5 @@
 {
-  "category": [
+  "categories": [
     {
       "id": 1,
       "name": "Smart phone"
@@ -15,8 +15,7 @@
       "name": "IPhone 12",
       "price": 2400000,
       "description": "New",
-      "category":
-      {
+      "category": {
         "id": 1,
         "name": "Smart phone"
       }
@@ -26,8 +25,7 @@
       "name": "IPhone 11",
       "price": 1560000,
       "description": "Like new",
-      "category":
-      {
+      "category": {
         "id": 1,
         "name": "Smart phone"
       }
@@ -37,8 +35,7 @@
       "name": "IPhone X",
       "price": 968000,
       "description": "97%",
-      "category":
-      {
+      "category": {
         "id": 1,
         "name": "Smart phone"
       }
@@ -48,8 +45,17 @@
       "name": "Macbook pro",
       "price": 968000,
       "description": "97%",
-      "category":
-      {
+      "category": {
+        "id": 2,
+        "name": "Laptop"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Dell 9",
+      "price": 21312,
+      "description": "9%",
+      "category": {
         "id": 2,
         "name": "Laptop"
       }

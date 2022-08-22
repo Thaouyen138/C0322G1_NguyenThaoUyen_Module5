@@ -4,6 +4,7 @@
     <th>STT</th>
     <th>Tên</th>
     <th>Giá</th>
+    <th>Danh mục</th>
     <th>Mô tả</th>
     <th>Chỉnh sửa</th>
     <th>Xóa</th>
@@ -13,6 +14,7 @@
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
+    <td>{{product.category.name}}</td>
     <td >
       <button routerLink="/product/edit/{{product.id}}">Chỉnh sửa</button>
     </td>
