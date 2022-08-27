@@ -1,0 +1,131 @@
+<div class="body" style="width: 100%">
+  <div style="margin-left: 100px" class="row space-around">
+    <div class="col-4" *ngFor="let facility of facilityList">
+      <div class="card" style="width: 22rem; margin-top: 30px">
+        <img
+          src="https://furamavietnam.com/wp-content/uploads/2018/03/%5E224942630D3A5A787C2989A9F5AF4A3E34E6A8CAE8D94FA3D4%5Epimgpsh_fullsize_distr-1047x563.jpg"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h4 class="card-text"> OCEAN SUITE</h4>
+          <div>ID: {{facility.id}}</div>
+          <div>Room size: {{facility.sizeRoom}} m<sup>2</sup></div>
+          <div>Max people: {{facility.maxPeople}}</div>
+          <div>Price: {{facility.price}}$</div>
+                    <div>Standard: {{facility.standard}}</div>
+          <div style="margin-top: 10px" class="space-around">
+            <span>
+              <button type="button" routerLink="/facility/edit/{{facility.id}}" class="btn btn-warning "
+                      data-toggle="modal" data-target="#edit" style="color: black;border: white;margin-right: 30px; width: 100px;height: 40px">
+
+     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+          viewBox="0 0 16 16">
+        <path
+          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd"
+        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+     </svg>
+              </button>
+            </span>
+            <span>
+              <button type="button" class="btn btn-danger " style="color: white;border: white;margin-left: 100px ;width: 100px;height: 40px"
+                      data-toggle="modal" data-target="#delete"
+                      (click)="setIdDelete(facility.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                 <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                </svg>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <button routerLink="/facility/create"
+            style="font-weight: bold;font-size: 20px;background: linear-gradient(yellow,rgba(244,217,20,0.93),rgba(238,187,49,0.93),rgba(231,180,49,0.93))"
+            class="btn btn-light  center-box form-control" data-toggle="modal" data-target="#addNew">
+      Add New
+    </button>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<!--&lt;!&ndash;modal eidt&ndash;&gt;-->
+<!--<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header center-box border-0">-->
+<!--        <h5 class="modal-title ">EDIT FACILITY</h5>-->
+<!--      </div>-->
+<!--      <div class="modal-body border-0">-->
+<!--        <form [formGroup]="facilityForm">-->
+<!--          <div class="form-group">-->
+<!--            <label>Id:</label>-->
+<!--            <input type="text" class="form-control" formControlName="id" disabled>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>Size room:</label>-->
+<!--            <input type="number" class="form-control" formControlName="sizeRoom">-->
+<!--            <p-->
+<!--              *ngIf="facilityForm.controls.sizeRoom.hasError('required')-->
+<!--              &&( facilityForm.controls.sizeRoom.touched || facilityForm.controls.sizeRoom.dirty)">-->
+<!--              Not Empty-->
+<!--            </p>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>Max people:</label>-->
+<!--            <input type="number" class="form-control" formControlName="maxPeople">-->
+<!--            <p-->
+<!--              *ngIf="facilityForm.controls.maxPeople.hasError('required')-->
+<!--              &&( facilityForm.controls.maxPeople.touched || facilityForm.controls.maxPeople.dirty)">-->
+<!--              Not Empty-->
+<!--            </p>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label> Price:</label>-->
+<!--            <input type="number" class="form-control" formControlName="price">-->
+<!--            <p-->
+<!--              *ngIf="facilityForm.controls.price.hasError('required')-->
+<!--              &&( facilityForm.controls.price.touched || facilityForm.controls.price.dirty)">-->
+<!--              Not Empty-->
+<!--            </p>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>Standard:</label>-->
+<!--            <input type="text" class="form-control" formControlName="standard">-->
+<!--            <p-->
+<!--              *ngIf="facilityForm.controls.standard.hasError('required')-->
+<!--              &&( facilityForm.controls.standard.touched || facilityForm.controls.standard.dirty)">-->
+<!--              Not Empty-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--      <div class="modal-footer border-0">-->
+<!--        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+<!--        <button type="button" class="btn btn-warning" data-dismiss="modal" [disabled]="facilityForm.invalid" (click)="update()">Save changes</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;modal delete&ndash;&gt;-->
+<!--<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header center-box border-0">-->
+<!--        <h5 class="modal-title ">DELETE FACILITY</h5>-->
+<!--      </div>-->
+<!--      <div class="modal-body border-0">-->
+<!--        Are you sure to delete facility have {{name}}-->
+<!--      </div>-->
+<!--      <div class="modal-footer border-0">-->
+<!--        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>-->
+<!--        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="delete(id)">Delete</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

@@ -1,0 +1,138 @@
+{
+  "customerTypeList": [
+    {
+      "id": 1,
+      "name": "Silver"
+    },
+    {
+      "id": 2,
+      "name": "Member"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Diamond"
+    },
+    {
+      "id": 5,
+      "name": "Platinum"
+    }
+  ],
+  "customerList": [
+    {
+      "id": "CU-0002",
+      "name": "Thảo Uyên",
+      "dateOfBirth": "1999-08-13",
+      "gender": "Female",
+      "indentity": "44443333",
+      "phone": "+84499999999",
+      "email": "girl9xtimboy2k@gmail.com",
+      "address": "USA",
+      "customerType": {
+        "id": 5,
+        "name": "Platinum"
+      }
+    },
+    {
+      "id": "123",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "name": "Hảo Hảo",
+      "dateOfBirth": "1999-11-11",
+      "gender": "Male",
+      "indentity": "4324234",
+      "phone": "+84123123333",
+      "email": "hoanghao@gmail.com",
+      "address": "da nang"
+    },
+    {
+      "id": "12343",
+      "customerType": {
+        "id": 5,
+        "name": "Platinum"
+      },
+      "name": "123432",
+      "dateOfBirth": "2001-02-11",
+      "gender": "Female",
+      "indentity": "123432",
+      "phone": "+84123443234",
+      "email": "123432@a",
+      "address": "12"
+    },
+    {
+      "id": "12121",
+      "customerType": {
+        "id": 1,
+        "name": "Silver"
+      },
+      "name": "1212",
+      "dateOfBirth": "2001-12-12",
+      "gender": "Female",
+      "indentity": "123454321",
+      "phone": "+84123422222",
+      "email": "123@m",
+      "address": "122"
+    },
+    {
+      "id": "2354",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "name": "1212",
+      "dateOfBirth": "2022-12-11",
+      "gender": "Male",
+      "indentity": "1212122",
+      "phone": "+84121221212",
+      "email": "1221@m",
+      "address": "1212"
+    },
+    {
+      "id": "12122",
+      "customerType": {
+        "id": 1,
+        "name": "Silver"
+      },
+      "name": "121212",
+      "dateOfBirth": "1111-02-12",
+      "gender": "Female",
+      "indentity": "12121212",
+      "phone": "+84123233333",
+      "email": "12121222@m",
+      "address": "1212"
+    },
+    {
+      "id": "11212",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "name": "1212233333",
+      "dateOfBirth": "2922-11-11",
+      "gender": "Male",
+      "indentity": "12121212",
+      "phone": "+841213455323",
+      "email": "12343@mmaaa",
+      "address": "asas"
+    },
+    {
+      "id": "1223",
+      "customerType": {
+        "id": 1,
+        "name": "Silver"
+      },
+      "name": "121212",
+      "dateOfBirth": "2019-11-11",
+      "gender": "Female",
+      "indentity": "12212212",
+      "phone": "+84121212129",
+      "email": "12121212@M",
+      "address": "1212121211234"
+    }
+  ]
+}

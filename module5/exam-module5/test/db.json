@@ -1,0 +1,58 @@
+{
+  "benhNhanList": [
+    {
+      "id": 1,
+      "tenBenhNhan": "Nguyễn Văn A"
+    },
+    {
+      "id": 2,
+      "tenBenhNhan": "Nguyễn Văn B"
+    },
+    {
+      "id": 3,
+      "tenBenhNhan": "Tôn Nữ D"
+    },
+    {
+      "id": 4,
+      "tenBenhNhan": "Đoàn Thị E"
+    }
+  ],
+  "benhAnList": [
+    {
+      "id": 1,
+      "benhNhan": {
+        "id": 4,
+        "tenBenhNhan": "Đoàn Thị E"
+      },
+      "ngayNhapVien": "2022-08-08",
+      "ngayRaVien": "2022-09-08",
+      "lyDoNhapVien": "Ung thư gan giai đoạn cuối",
+      "phuongPhapDieuTri": "Mổ",
+      "bacSiDieuTri": "Lê Văn B"
+    },
+    {
+      "id": 2,
+      "benhNhan": {
+        "id": 2,
+        "tenBenhNhan": "Nguyễn Văn B"
+      },
+      "ngayNhapVien": "1999-02-11",
+      "ngayRaVien": "1999-02-20",
+      "lyDoNhapVien": "Đau bụng",
+      "phuongPhapDieuTri": "Uống thuốc",
+      "bacSiDieuTri": "Nguyễn Thị D"
+    },
+    {
+      "id": 3,
+      "benhNhan": {
+        "id": 2,
+        "tenBenhNhan": "Nguyễn Văn B"
+      },
+      "ngayNhapVien": "2001-02-20",
+      "ngayRaVien": "2001-02-22",
+      "lyDoNhapVien": "Đau tim",
+      "phuongPhapDieuTri": "Mổ ",
+      "bacSiDieuTri": "Đoàn Thị C"
+    }
+  ]
+}

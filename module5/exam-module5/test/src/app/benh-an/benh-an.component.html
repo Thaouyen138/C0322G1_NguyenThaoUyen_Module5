@@ -1,0 +1,247 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th style="height: 70px" class="border-0 text-white bg-dark">MÃ BỆNH ÁN</th>
+<!--    <th style="height: 70px" class="border-0 text-white bg-dark">MÃ BỆNH NHÂN</th>-->
+    <th style="height: 70px" class="border-0 text-white bg-dark">TÊN BỆNH NHÂN</th>
+    <th style="height: 70px" class="border-0 text-white bg-dark">NGÀY NHẬP VIỆN</th>
+    <th style="height: 70px" class="border-0 text-white bg-dark">NGÀY RA VIỆN</th>
+    <th style="height: 70px" class="border-0 text-white bg-dark">LÝ DO NHẬP VIÊN</th>
+    <th style="height: 70px" class="border-0 text-white bg-dark">PHƯƠNG PHÁP ĐIỀU TRỊ</th>
+    <th style="height: 70px" class="border-0 text-white bg-dark">BÁC SĨ ĐIỀU TRỊ</th>
+    <th style="height: 70px" colspan="2" class="border-0 text-white bg-dark">TÁC VỤ</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr style="height: 40px" *ngFor="let benhAn of benhAnList">
+    <td scope="col">{{benhAn.id}}</td>
+    <td>{{benhAn.benhNhan.tenBenhNhan}}</td>
+    <td>{{benhAn.ngayNhapVien}}</td>
+    <td>{{benhAn.ngayRaVien}}</td>
+    <td>{{benhAn.lyDoNhapVien}}</td>
+    <td>{{benhAn.phuongPhapDieuTri}}</td>
+    <td>{{benhAn.bacSiDieuTri}}</td>
+    <td>
+      <button class="btn btn-warning text-dark" type="button" (click)="edit(benhAn)" data-toggle="modal" data-target="#edit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+        </svg>
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-danger " style="color: white;border: white" data-toggle="modal" data-target="#delete"
+              (click)="setDelete(benhAn.id)">
+        Delete <i class="bi bi-trash3"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <button class="btn btn-warning center-box form-control text-dark" data-toggle="modal" data-target="#addNew">
+      Add New
+    </button>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<!--modal-edit-->
+<div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header center-box border-0">
+        <h5 class="modal-title ">ADD NEW</h5>
+      </div>
+      <div class="modal-body border-0">
+        <form [formGroup]="benhAnForm">
+          <div class="form-group">
+            <label>MÃ BỆNH ÁN:</label>
+            <input type="number" class="form-control" formControlName="id">
+          </div>
+          <div class="form-group">
+            <label>Tên BỆNH NHÂN:</label>
+            <select class="form-control" formControlName="benhNhan" [compareWith]="compareWithId">
+              <option value="">--Chon bệnh nhân--</option>
+              <option [ngValue]="type" *ngFor="let type of benhNhanList ">{{type.tenBenhNhan}}</option>
+            </select>
+            <p
+              *ngIf="benhAnForm.controls.benhNhan.hasError('required')
+              &&( benhAnForm.controls.benhNhan.touched || benhAnForm.controls.benhNhan.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>NGÀY NHẬP VIỆN:</label>
+            <input type="date" class="form-control" formControlName="ngayNhapVien">
+            <p
+              *ngIf="benhAnForm.controls.ngayNhapVien.hasError('required')
+              &&( benhAnForm.controls.ngayNhapVien.touched || benhAnForm.controls.ngayNhapVien.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>NGÀY RA VIỆN:</label>
+            <input type="date" class="form-control" formControlName="ngayRaVien">
+            <p
+              *ngIf="benhAnForm.controls.ngayRaVien.hasError('required')
+              &&( benhAnForm.controls.ngayRaVien.touched || benhAnForm.controls.ngayRaVien.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>LÝ DO NHẬP VIỆN:</label>
+            <input type="text" class="form-control" formControlName="lyDoNhapVien">
+            <p
+              *ngIf="benhAnForm.controls.lyDoNhapVien.hasError('required')
+              &&( benhAnForm.controls.lyDoNhapVien.touched || benhAnForm.controls.lyDoNhapVien.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>PHƯƠNG PHÁP ĐIỀU TRỊ:</label>
+            <input type="text" class="form-control" formControlName="phuongPhapDieuTri">
+            <p
+              *ngIf="benhAnForm.controls.phuongPhapDieuTri.hasError('required')
+              &&( benhAnForm.controls.phuongPhapDieuTri.touched || benhAnForm.controls.phuongPhapDieuTri.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>BÁC SĨ ĐIỀU TRỊ:</label>
+            <input type="text" class="form-control" formControlName="bacSiDieuTri">
+            <p
+              *ngIf="benhAnForm.controls.bacSiDieuTri.hasError('required')
+              &&( benhAnForm.controls.bacSiDieuTri.touched || benhAnForm.controls.bacSiDieuTri.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal" [disabled]="benhAnForm.invalid"
+                (click)="onSubmit()">Save changes
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!--modal-edit-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header center-box border-0">
+        <h5 class="modal-title ">EDIT</h5>
+      </div>
+      <div class="modal-body border-0">
+        <form [formGroup]="benhAnForm">
+          <div class="form-group">
+            <label>MÃ BỆNH ÁN:</label>
+            <input  disabled type="number" class="form-control" formControlName="id">
+          </div>
+          <div class="form-group">
+            <label>Tên BỆNH NHÂN:</label>
+            <select class="form-control" formControlName="benhNhan" [compareWith]="compareWithId">
+              <option value="">--Chon bệnh nhân--</option>
+              <option [ngValue]="type" *ngFor="let type of benhNhanList ">{{type.tenBenhNhan}}</option>
+            </select>
+            <p
+              *ngIf="benhAnForm.controls.benhNhan.hasError('required')
+              &&( benhAnForm.controls.benhNhan.touched || benhAnForm.controls.benhNhan.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>NGÀY NHẬP VIỆN:</label>
+            <input type="date" class="form-control" formControlName="ngayNhapVien">
+            <p
+              *ngIf="benhAnForm.controls.ngayNhapVien.hasError('required')
+              &&( benhAnForm.controls.ngayNhapVien.touched || benhAnForm.controls.ngayNhapVien.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>NGÀY RA VIỆN:</label>
+            <input type="date" class="form-control" formControlName="ngayRaVien">
+            <p
+              *ngIf="benhAnForm.controls.ngayRaVien.hasError('required')
+              &&( benhAnForm.controls.ngayRaVien.touched || benhAnForm.controls.ngayRaVien.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>LÝ DO NHẬP VIỆN:</label>
+            <input type="text" class="form-control" formControlName="lyDoNhapVien">
+            <p
+              *ngIf="benhAnForm.controls.lyDoNhapVien.hasError('required')
+              &&( benhAnForm.controls.lyDoNhapVien.touched || benhAnForm.controls.lyDoNhapVien.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>PHƯƠNG PHÁP ĐIỀU TRỊ:</label>
+            <input type="text" class="form-control" formControlName="phuongPhapDieuTri">
+            <p
+              *ngIf="benhAnForm.controls.phuongPhapDieuTri.hasError('required')
+              &&( benhAnForm.controls.phuongPhapDieuTri.touched || benhAnForm.controls.phuongPhapDieuTri.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>BÁC SĨ ĐIỀU TRỊ:</label>
+            <input type="text" class="form-control" formControlName="bacSiDieuTri">
+            <p
+              *ngIf="benhAnForm.controls.bacSiDieuTri.hasError('required')
+              &&( benhAnForm.controls.bacSiDieuTri.touched || benhAnForm.controls.bacSiDieuTri.dirty)">
+              Not Empty
+            </p>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal" [disabled]="benhAnForm.invalid"
+                (click)="update()">Save changes
+        </button>
+      </div>
+    </div>
+
+</div>
+</div>
+
+<!--modal detele-->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header center-box border-0">
+        <h5 class="modal-title ">DELETE FACILITY</h5>
+      </div>
+      <div class="modal-body border-0">
+        Are you sure to delete veXe have {{idToDelete}}
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
