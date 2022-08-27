@@ -19,22 +19,34 @@ public class MedicalRestController {
     private IPatientService iPatientService;
 
     @GetMapping("/patientList")
-    public ResponseEntity<?> getAllPatient(){
+    public ResponseEntity<?> getAllPatient() {
         return new ResponseEntity<>(iPatientService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("")
-    public ResponseEntity<?> getAll(){
+    public ResponseEntity<?> getAll() {
         return new ResponseEntity<>(iMedicalRecordService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getId(@PathVariable("id") Integer id){
+    public ResponseEntity<?> getId(@PathVariable("id") Integer id) {
         return new ResponseEntity<>(iMedicalRecordService.findId(id), HttpStatus.OK);
     }
+
     @PatchMapping("")
-    public ResponseEntity<?> update(@RequestBody MedicalRecord medicalRecord){
+    public ResponseEntity<?> update(@RequestBody MedicalRecord medicalRecord) {
         iMedicalRecordService.edit(medicalRecord);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("/create")
+    public ResponseEntity<?> formCreate() {
+//    return iMedicalRecordService.create();
+        return null;
+    }
+
+    @PostMapping("")
+    public ResponseEntity<?> create(@RequestBody MedicalRecord medicalRecord) {
+        iMedicalRecordService.create(medicalRecord);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

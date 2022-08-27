@@ -1,9 +1,11 @@
 package vn.codegym.module6.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vn.codegym.module6.model.MedicalRecord;
 import vn.codegym.module6.repository.IMedicalRecordRepository;
+
 import java.util.List;
 
 @Service
@@ -24,5 +26,10 @@ public class MedicalServiceImpl  implements IMedicalRecordService{
     @Override
     public MedicalRecord findId(Integer id) {
         return this.iMedicalRecordRepository.findId(id);
+    }
+
+    @Override
+    public void create(MedicalRecord medicalRecord) {
+        this.iMedicalRecordRepository.create(medicalRecord.getId(),medicalRecord.getDoctor(),medicalRecord.getEndDate(),medicalRecord.getReason(),medicalRecord.getStartDate(), medicalRecord.getTreatments(), medicalRecord.getPatient().getId());
     }
 }

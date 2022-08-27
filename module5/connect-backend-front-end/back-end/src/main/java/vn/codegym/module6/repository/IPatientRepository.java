@@ -2,8 +2,8 @@ package vn.codegym.module6.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import vn.codegym.module6.model.MedicalRecord;
 import vn.codegym.module6.model.Patient;
+
 
 import java.util.List;
 

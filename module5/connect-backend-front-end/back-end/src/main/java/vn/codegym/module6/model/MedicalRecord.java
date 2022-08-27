@@ -11,7 +11,7 @@ public class MedicalRecord {
 
     @ManyToOne
     @JoinColumn(name = "patient",referencedColumnName = "id")
-    private Patient patient;
+  private Patient patient;
 
     @Column(name = "start_date", columnDefinition = "date")
     private String startDate;
@@ -37,7 +37,7 @@ public class MedicalRecord {
         this.statusDelete = statusDelete;
     }
 
-    public MedicalRecord(Integer id, Patient patient, String startDate, String endDate, String reason, String treatments, String doctor, Integer statusDelete) {
+    public MedicalRecord(Integer id, vn.codegym.module6.model.Patient patient, String startDate, String endDate, String reason, String treatments, String doctor, Integer statusDelete) {
         this.id = id;
         this.patient = patient;
         this.startDate = startDate;
