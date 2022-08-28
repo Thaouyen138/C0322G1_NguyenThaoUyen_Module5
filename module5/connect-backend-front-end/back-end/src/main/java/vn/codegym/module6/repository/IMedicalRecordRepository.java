@@ -9,20 +9,26 @@ import vn.codegym.module6.model.MedicalRecord;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Transactional
 public interface IMedicalRecordRepository extends JpaRepository<MedicalRecord, Integer> {
 
-    @Query(value = "SELECT * FROM medical_record where status_delete = 0",nativeQuery = true)
-     List<MedicalRecord>findAll();
+    @Query(value = "SELECT * FROM medical_record where status_delete = 0", nativeQuery = true)
+    List<MedicalRecord> findAll();
 
-    @Query(value = "SELECT * FROM medical_record where id = :id",nativeQuery = true)
+    @Query(value = "SELECT * FROM medical_record where id = :id", nativeQuery = true)
     MedicalRecord findId(@Param("id") Integer id);
 
     @Modifying
     @Query(value = "update medical_record set doctor = :doctor,end_date = :endDate, reason = :reason, start_date = :startDate, treatments = :treatments, patient = :patient where id = :id", nativeQuery = true)
-     void edit(@Param("doctor") String doctor, @Param("endDate") String endDate, @Param("reason")  String reason, @Param("startDate") String startDate, @Param("treatments") String treatments,@Param("patient") Integer patient, @Param("id") Integer id);
+    void edit(@Param("doctor") String doctor, @Param("endDate") String endDate, @Param("reason") String reason, @Param("startDate") String startDate, @Param("treatments") String treatments, @Param("patient") Integer patient, @Param("id") Integer id);
+
+    @Modifying
+    @Query(value = "update medical_record set status_delete = 1 where id = :id", nativeQuery = true)
+    void delete(@Param("id") Integer id);
 
 
-    @Query(value = "insert INTO medical_record values (id = :id ,doctor = :doctor,end_date = :endDate, reason = :reason, start_date = :startDate, treatments = :treatments, patient = :patient)")
-    void create(@Param("id") Integer id, @Param("doctor") String doctor, @Param("endDate") String endDate, @Param("reason")  String reason, @Param("startDate") String startDate, @Param("treatments") String treatments,@Param("patient") Integer patient);
+    @Modifying
+    @Query(value = "insert INTO medical_record values (id = null ,doctor = :doctor,end_date = :endDate, reason = :reason, start_date = :startDate, treatments = :treatments, patient = :patient, status_delete = 0)", nativeQuery = true)
+    void create(@Param("doctor") String doctor, @Param("endDate") String endDate, @Param("reason") String reason, @Param("startDate") String startDate, @Param("treatments") String treatments, @Param("patient") Integer patient);
 }

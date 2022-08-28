@@ -12,4 +12,6 @@ public interface IMedicalRecordService {
     MedicalRecord findId(Integer id);
 
     void create(MedicalRecord medicalRecord);
+
+    void delete(Integer id);
 }

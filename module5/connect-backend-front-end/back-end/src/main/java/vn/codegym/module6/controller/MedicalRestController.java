@@ -38,12 +38,11 @@ public class MedicalRestController {
         iMedicalRecordService.edit(medicalRecord);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @GetMapping("/create")
-    public ResponseEntity<?> formCreate() {
-//    return iMedicalRecordService.create();
-        return null;
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
+        iMedicalRecordService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
-
     @PostMapping("")
     public ResponseEntity<?> create(@RequestBody MedicalRecord medicalRecord) {
         iMedicalRecordService.create(medicalRecord);

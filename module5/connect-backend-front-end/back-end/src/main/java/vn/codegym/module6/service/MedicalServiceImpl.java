@@ -30,6 +30,11 @@ public class MedicalServiceImpl  implements IMedicalRecordService{
 
     @Override
     public void create(MedicalRecord medicalRecord) {
-        this.iMedicalRecordRepository.create(medicalRecord.getId(),medicalRecord.getDoctor(),medicalRecord.getEndDate(),medicalRecord.getReason(),medicalRecord.getStartDate(), medicalRecord.getTreatments(), medicalRecord.getPatient().getId());
+        this.iMedicalRecordRepository.create(medicalRecord.getDoctor(),medicalRecord.getEndDate(),medicalRecord.getReason(),medicalRecord.getStartDate(), medicalRecord.getTreatments(), medicalRecord.getPatient().getId());
+    }
+
+    @Override
+    public void delete(Integer id) {
+        this.iMedicalRecordRepository.delete(id);
     }
 }
